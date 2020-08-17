@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&family=Nova+Flat&display=swap');
+body {
+  font: 16px / calc(1ex / 0.32) 'Rubik', helvetica, arial, sans-serif;
+}
+
+@screen md {
+  body {
+    font-size: 18px;
+  }
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.2;
+  @apply font-medium text-red-700;
+}
+
+p {
+  @apply mt-3;
+}
+
+h1 {
+  @apply text-3xl;
+}
+
+h2 {
+  @apply text-2xl mt-6;
+}
+
+h3 {
+  @apply text-xl mt-5;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.dashed {
+  border-bottom: 2px dashed #c53030;
+}
+
+* {
+  scrollbar-color: white hsl(10, 100%, 90%);
+}
+
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: white;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: hsl(10, 100%, 90%);
+}
