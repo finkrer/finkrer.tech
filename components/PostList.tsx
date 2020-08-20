@@ -1,7 +1,6 @@
 import PostPreview from 'components/PostPreview'
-import { StoryData } from 'storyblok-js-client'
 
-const PostList = ({ posts }: { posts: Array<StoryData> }) => (
+const PostList = ({ posts }) => (
   <section className="mt-4">
     {posts
       .sort((a, b) => b.id - a.id)

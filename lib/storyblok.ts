@@ -14,3 +14,8 @@ export const StoryblokCMA = new StoryblokClient({
   oauthToken: process.env.STORYBLOK_CMA_TOKEN,
   cache: cacheSettings,
 })
+
+export const flushStoryblokCache = () => {
+  StoryblokCDA.flushCache()
+  StoryblokCMA.flushCache()
+}

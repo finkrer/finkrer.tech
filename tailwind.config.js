@@ -1,7 +1,7 @@
 module.exports = {
   purge:
     process.env.NODE_ENV === 'production'
-      ? ['./pages/**/*.js', './components/**/*.js']
+      ? ['./pages/**/*.tsx', './components/**/*.tsx']
       : [],
   theme: {
     extend: {

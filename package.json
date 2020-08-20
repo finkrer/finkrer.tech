@@ -23,7 +23,5 @@
   "resolutions": {
     "webpack": "^5.0.0-beta.22"
   },
-  "devDependencies": {
-    "@types/remarkable": "^1.7.4"
-  }
+  "devDependencies": {}
 }
