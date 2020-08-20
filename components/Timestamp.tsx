@@ -1,18 +1,22 @@
-import { Remarkable } from 'remarkable'
+const Timestamp = ({ datetime }) => (
+  <time className="text-sm mt-2 text-gray-700 p-0 float-right">
+    {formatDate(datetime)}
+  </time>
+)
 
-export const formatDate = (datetime) => {
+const formatDate = (datetime: string | number | Date) => {
   const date = new Date(datetime)
-  const format = new Intl.DateTimeFormat('en', {
+  const format = new Intl.DateTimeFormat('ru', {
     year: 'numeric',
     month: '2-digit',
     day: '2-digit',
-    hour: 'numeric',
+    hour: '2-digit',
     minute: 'numeric',
   })
   const [
-    { value: month },
-    ,
     { value: day },
+    ,
+    { value: month },
     ,
     { value: year },
     ,
@@ -23,5 +27,4 @@ export const formatDate = (datetime) => {
   return `${day}.${month}.${year} ${hour}:${minute}`
 }
 
-const remarkable = new Remarkable()
-export const renderMarkdown = (markdown) => remarkable.render(markdown)
+export default Timestamp

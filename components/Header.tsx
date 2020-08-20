@@ -16,7 +16,7 @@ const Header = () => (
         </ul>
         <ul>
           <Link href="/log">
-            <a className="inline-block border-red-500 border-2 rounded hover:bg-red-500 px-6 mt-2">
+            <a className="inline-block border-red-500 border-2 rounded hover:bg-red-500 hover:text-blue-100 px-6 mt-2">
               Лог
             </a>
           </Link>

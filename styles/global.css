@@ -3,12 +3,6 @@ body {
   font: 16px / calc(1ex / 0.32) 'Rubik', helvetica, arial, sans-serif;
 }
 
-@screen md {
-  body {
-    font-size: 18px;
-  }
-}
-
 h1,
 h2,
 h3 {

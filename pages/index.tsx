@@ -1,4 +1,4 @@
-import Layout from 'components/layout'
+import Layout from 'components/Layout'
 
 const Index = () => (
   <Layout title="finkrer.wtf" description="My cool personal website">

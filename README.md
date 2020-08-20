@@ -1,5 +1,5 @@
 # finkrer.wtf
 
-The sources of the eponymous website.
+Eponymous website's source code.
 
-Built with Next.js, Apollo GraphQL for data fetching and Tailwind CSS.
+Built with Next.js, Storyblok CMS API for content fetching, and Tailwind CSS.
