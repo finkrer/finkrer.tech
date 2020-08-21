@@ -6,7 +6,6 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        light: { raw: '(prefers-color-scheme: light)' },
         dark: { raw: '(prefers-color-scheme: dark)' },
       },
     },
@@ -16,4 +15,5 @@ module.exports = {
   future: {
     removeDeprecatedGapUtilities: true,
   },
+  experimental: 'all',
 }

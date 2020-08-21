@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  next:
+    build: .
+    container_name: next
+    restart: always
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external:
+      name: reverse_proxy

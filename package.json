@@ -17,8 +17,8 @@
     "react-dom": "16.13.1",
     "remarkable": "^2.0.1",
     "storyblok-js-client": "^2.5.2",
-    "tailwindcss": "^1.6.2",
-    "typescript": "^3.9.7"
+    "tailwindcss": "^1.7.3",
+    "typescript": "^4.0.2"
   },
   "resolutions": {
     "webpack": "^5.0.0-beta.22"
