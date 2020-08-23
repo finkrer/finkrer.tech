@@ -3,8 +3,9 @@ version: '3.7'
 services:
   next:
     build: .
+    image: finkrer.wtf:latest
     container_name: next
-    restart: always
+    restart: unless-stopped
     networks:
       - proxy
 

@@ -1,8 +1,8 @@
-import Layout from 'components/Layout'
+import Layout from 'layout/Layout'
 
 const Index = () => (
   <Layout title="finkrer.wtf" description="My cool personal website">
-    <article className="mt-8">
+    <article>
       <h2>Это что такое вообще?</h2>
       <p>Мой сайт! Здесь я буду размещать фото своих котов.</p>
 

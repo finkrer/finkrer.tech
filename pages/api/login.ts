@@ -8,7 +8,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     return
   }
 
-  const token = req.query.token
+  const token = req.body
 
   if (token !== process.env.ADMIN_TOKEN) {
     res.status(401).json({ success: false })

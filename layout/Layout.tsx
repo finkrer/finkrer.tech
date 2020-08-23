@@ -1,5 +1,8 @@
 import Head from 'next/head'
 import Header from 'components/Header'
+import TopLine from 'components/TopLine'
+import FlexContainer from 'layout/FlexContainer'
+import ContentContainer from 'layout/ContentContainer'
 
 const Layout = ({ title, description, children }) => (
   <>
@@ -11,8 +14,15 @@ const Layout = ({ title, description, children }) => (
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <link rel="icon" type="image/png" href="data:image/png;base64," />
     </Head>
-    <Header />
-    {children}
+    <TopLine />
+    <FlexContainer>
+      <ContentContainer className="text-gray-900 bg-gray-50 pb-2">
+        <Header />
+      </ContentContainer>
+      <ContentContainer className="text-gray-900 bg-gray-100 shadow pb-4">
+        {children}
+      </ContentContainer>
+    </FlexContainer>
   </>
 )
 

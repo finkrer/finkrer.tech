@@ -1,13 +1,17 @@
 import { StoryblokCDA as Storyblok } from 'lib/storyblok'
 import Timestamp from 'components/Timestamp'
 import Markdown from 'components/Markdown'
-import Layout from 'components/Layout'
-import { useRouter } from 'next/router'
+import Layout from 'layout/Layout'
 import DefaultErrorPage from 'next/error'
-import { GetStaticProps, GetStaticPaths } from 'next'
+import { GetServerSideProps } from 'next'
 import { Story } from 'storyblok-js-client'
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getServerSideProps: GetServerSideProps = async ({
+  params,
+  req,
+}) => {
+  const cookie = req.headers.cookie
+  const authorized = cookie && cookie.indexOf(process.env.ADMIN_TOKEN) !== -1
   let post: Story
 
   await Storyblok.getStory(`posts/${params.slug}`)
@@ -16,7 +20,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       post = null
     })
 
-  if (!post || !post.data.story.content.public) {
+  if (!post || (!post.data.story.content.public && !authorized)) {
     return { props: {} }
   }
 
@@ -29,20 +33,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  return {
-    paths: [],
-    fallback: true,
-  }
-}
-
 const Post = ({ name, first_published_at, body }) => {
-  const router = useRouter()
-
-  if (router.isFallback) {
-    return <h3>Loading...</h3>
-  }
-
   if (!body) {
     return <DefaultErrorPage statusCode={404} title="Post not found" />
   }

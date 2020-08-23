@@ -1,14 +1,16 @@
-import Layout from 'components/Layout'
+import Layout from 'layout/Layout'
 import PostList from 'components/PostList'
 import Explanation from 'components/Explanation'
 import { StoryblokCDA as Storyblok } from 'lib/storyblok'
-import { GetStaticProps } from 'next'
+import { GetServerSideProps } from 'next'
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async ({ req }) => {
+  const cookie = req.headers.cookie
+  const authorized = cookie && cookie.indexOf(process.env.ADMIN_TOKEN) !== -1
   const res = await Storyblok.getStories()
 
   const posts = res.data.stories
-    .filter((story) => story.content.public)
+    .filter((story) => authorized || story.content.public)
     .map((story) => ({
       id: story.id,
       name: story.name,
@@ -19,7 +21,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   return {
     props: { posts },
-    revalidate: 1,
   }
 }
 
