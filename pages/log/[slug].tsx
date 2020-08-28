@@ -5,13 +5,14 @@ import Layout from 'layout/Layout'
 import DefaultErrorPage from 'next/error'
 import { GetServerSideProps } from 'next'
 import { Story } from 'storyblok-js-client'
+import { containsToken } from 'lib/auth'
 
 export const getServerSideProps: GetServerSideProps = async ({
   params,
   req,
 }) => {
   const cookie = req.headers.cookie
-  const authorized = cookie && cookie.indexOf(process.env.ADMIN_TOKEN) !== -1
+  const authorized = containsToken(cookie)
   let post: Story
 
   await Storyblok.getStory(`posts/${params.slug}`)
@@ -41,7 +42,7 @@ const Post = ({ name, first_published_at, body }) => {
   return (
     <Layout title={`finkrer.wtf • ${name}`} description="A post">
       <article>
-        <div className="px-4 pb-3 pt-1 mt-3 shadow-sm bg-white rounded">
+        <div className="px-4 pt-1 pb-3 mt-3 bg-white rounded shadow-sm">
           <h3 className="float-left">{name}</h3>
           <Timestamp datetime={first_published_at} />
           <Markdown body={body} />

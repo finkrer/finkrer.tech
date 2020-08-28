@@ -3,10 +3,11 @@ import PostList from 'components/PostList'
 import Explanation from 'components/Explanation'
 import { StoryblokCDA as Storyblok } from 'lib/storyblok'
 import { GetServerSideProps } from 'next'
+import { containsToken } from 'lib/auth'
 
 export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   const cookie = req.headers.cookie
-  const authorized = cookie && cookie.indexOf(process.env.ADMIN_TOKEN) !== -1
+  const authorized = containsToken(cookie)
   const res = await Storyblok.getStories()
 
   const posts = res.data.stories

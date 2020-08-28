@@ -1,13 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik&family=Nova+Flat&display=swap');
-body {
-  font: 16px / calc(1ex / 0.32) 'Rubik', helvetica, arial, sans-serif;
+@font-face {
+  font-family: 'Inter';
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: oblique 0deg 10deg;
+  src: url('/fonts/Inter.var.woff2') format('woff2');
+}
+
+html {
+  font: 16px / calc(1ex / 0.32) 'Inter', helvetica, arial, sans-serif;
+  font-feature-settings: 'calt', 'case', 'ss03', 'ss04';
+  @apply font-medium;
+}
+
+@screen sm {
+  html {
+    font-size: 18px;
+    @apply font-normal;
+  }
 }
 
 h1,
 h2,
 h3 {
   line-height: 1.2;
-  @apply font-medium text-red-700;
+  @apply font-semibold;
 }
 
 p {
@@ -19,11 +35,11 @@ h1 {
 }
 
 h2 {
-  @apply text-2xl mt-6;
+  @apply mt-6 text-2xl;
 }
 
 h3 {
-  @apply text-xl mt-5;
+  @apply mt-5 text-xl;
 }
 
 img {
@@ -31,12 +47,18 @@ img {
   height: auto;
 }
 
+.optimal-text-width {
+  max-width: 65ch;
+}
+
 .dashed {
-  border-bottom: 2px dashed #c53030;
+  border-bottom: 2px dashed black;
 }
 
 * {
-  scrollbar-color: white hsl(10, 100%, 90%);
+  scrollbar-color: white hsl(10, 0%, 80%);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -moz-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 *::-webkit-scrollbar {
@@ -48,5 +70,9 @@ img {
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: hsl(10, 100%, 90%);
+  background-color: hsl(10, 0%, 80%);
+}
+
+::selection {
+  @apply bg-yellow-200;
 }

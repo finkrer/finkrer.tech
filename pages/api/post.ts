@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { StoryblokCMA, flushStoryblokCache } from 'lib/storyblok'
 import { STORYBLOK_SPACE_ID, STORYBLOK_POST_FOLDER_ID } from 'lib/constants'
+import { tokenIsCorrect } from 'lib/auth'
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method !== 'POST') {
@@ -10,7 +11,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   const token = req.cookies.token
 
-  if (token !== process.env.ADMIN_TOKEN) {
+  if (!tokenIsCorrect(token)) {
     res.status(401).json({ success: false })
     return
   }

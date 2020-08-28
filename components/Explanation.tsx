@@ -6,7 +6,7 @@ const Explanation = () => {
     <section>
       <button
         onClick={() => setActive(!active)}
-        className="text-red-700 dashed border-none mt-8 focus:outline-none"
+        className="mt-8 text-gray-700 border-none dashed focus:outline-none"
       >
         Что за лог?
       </button>

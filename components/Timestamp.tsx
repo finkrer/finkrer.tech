@@ -1,5 +1,5 @@
 const Timestamp = ({ datetime }) => (
-  <time className="text-sm mt-2 text-gray-700 p-0 float-right">
+  <time className="float-right p-0 mt-2 text-sm text-gray-700">
     {formatDate(datetime)}
   </time>
 )

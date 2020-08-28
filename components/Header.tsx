@@ -1,26 +1,21 @@
-import Link from 'next/link'
+import NavItem from 'components/NavItem'
 
 const Header = () => (
   <header>
     <nav>
-      <menu className="p-0 m-0">
-        <ul>
-          <Link href="/">
-            <a className="inline-block font-display text-red-500 text-5xl mt-4">
-              finkrer.wtf
-            </a>
-          </Link>
-          <aside lang="en" className="italic text-base">
-            Fully armed and operational
-          </aside>
-        </ul>
-        <ul>
-          <Link href="/log">
-            <a className="inline-block border-red-500 border-2 rounded hover:bg-red-500 hover:text-blue-100 px-6 mt-4">
-              Лог
-            </a>
-          </Link>
-        </ul>
+      <menu className="flex items-center justify-between py-3 pl-0 m-0 select-none">
+        <NavItem
+          href="/"
+          className="inline-block text-3xl font-medium tracking-wide"
+        >
+          finkrer<span className="text-yellow-200">.</span>
+        </NavItem>
+        <NavItem
+          href="/log"
+          className="inline-block px-6 mt-1 ml-8 text-lg lowercase rounded hover:bg-yellow-200"
+        >
+          Лог
+        </NavItem>
       </menu>
     </nav>
   </header>

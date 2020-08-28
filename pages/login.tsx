@@ -34,7 +34,7 @@ const Login = () => {
               Токен
             </label>
             <input
-              className="block rounded text-base p-2 focus:outline-none focus:shadow-outline w-full"
+              className="block w-full p-2 text-base border-2 border-gray-600 rounded focus:outline-none focus:border-yellow-300"
               name="token"
               id="token"
               ref={register}
@@ -50,7 +50,7 @@ const Login = () => {
             )}
           </div>
           <input
-            className="mt-4 text-lg p-3 rounded shadow focus:outline-none focus:shadow-outline"
+            className="p-3 mt-4 text-lg rounded shadow focus:outline-none focus:shadow-outline"
             type="submit"
             value="Попробовать"
           />
