@@ -23,7 +23,7 @@ const Login = () => {
   return (
     <Layout title="finkrer.wtf &bull; Login" description="The login page, duh">
       <FlexContainer>
-        <p className="text-gray-400">
+        <p className="text-sm leading-6 text-gray-400">
           Здесь можно залогиниться... в теории.
           <br />
           Нужно всего-то лишь знать секретный токен.
@@ -34,7 +34,7 @@ const Login = () => {
               Токен
             </label>
             <input
-              className="block w-full p-2 text-base border-2 border-gray-600 rounded focus:outline-none focus:border-yellow-300"
+              className="block w-full p-2 text-base border-2 border-gray-600 rounded focus:outline-none focus:border-accent-200 hover:border-accent-200"
               name="token"
               id="token"
               ref={register}
@@ -43,14 +43,14 @@ const Login = () => {
               result ? (
                 <p className="text-green-500">Все норм, можно заходить</p>
               ) : (
-                <p className="text-red-500">Токен неправильный, уходи!</p>
+                <p className="text-red-500">Ты пытался :(</p>
               )
             ) : (
               ''
             )}
           </div>
           <input
-            className="p-3 mt-4 text-lg rounded shadow focus:outline-none focus:shadow-outline"
+            className="p-3 mt-4 text-xs font-medium tracking-wider text-gray-800 uppercase bg-gray-200 rounded focus:outline-none focus:shadow-focus hover:bg-accent-200"
             type="submit"
             value="Попробовать"
           />
