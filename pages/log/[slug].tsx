@@ -44,8 +44,11 @@ const Post = ({ name, first_published_at, body }) => {
       <article>
         <div className="px-4 pt-1 pb-3 mt-3 bg-white rounded shadow-sm">
           <h3 className="float-left">{name}</h3>
-          <Timestamp datetime={first_published_at} />
-          <Markdown body={body} />
+          <Timestamp
+            datetime={first_published_at}
+            className="float-right p-0 mt-2 text-sm text-gray-500"
+          />
+          <Markdown body={body} className="inline-block ml-4" />
         </div>
       </article>
     </Layout>
