@@ -21,7 +21,7 @@ const Login = () => {
   }
 
   return (
-    <Layout title="finkrer.wtf &bull; Login" description="The login page, duh">
+    <Layout title="Login &bull; finkrer.wtf" description="The login page, duh">
       <FlexContainer>
         <p className="text-sm leading-6 text-gray-400">
           Здесь можно залогиниться... в теории.
@@ -37,6 +37,8 @@ const Login = () => {
               className="block w-full p-2 text-base border-2 border-gray-600 rounded focus:outline-none focus:border-accent-200 hover:border-accent-200"
               name="token"
               id="token"
+              type="search"
+              autoComplete="new-password"
               ref={register}
             />
             {result !== null ? (
