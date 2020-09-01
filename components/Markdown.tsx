@@ -2,9 +2,9 @@ import { Remarkable } from 'remarkable'
 
 const remarkable = new Remarkable()
 
-const Markdown = ({ body }) => (
+const Markdown = ({ body, className }) => (
   <section
-    className="inline-block ml-4"
+    className={className}
     dangerouslySetInnerHTML={{ __html: remarkable.render(body) }}
   ></section>
 )

@@ -7,8 +7,11 @@ const PostPreview = ({ name, first_published_at, body, slug }) => (
     <Link href={'/log/[slug]'} as={`/log/${slug}`}>
       <a className="float-left mt-2 text-xl text-gray-700">{name}</a>
     </Link>
-    <Timestamp datetime={first_published_at} />
-    <Markdown body={body} />
+    <Timestamp
+      datetime={first_published_at}
+      className="float-right p-0 mt-2 text-sm text-gray-500"
+    />
+    <Markdown body={body} className="inline-block ml-4" />
   </div>
 )
 
