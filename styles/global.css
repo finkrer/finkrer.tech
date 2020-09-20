@@ -52,7 +52,17 @@ img {
 }
 
 .dashed {
-  border-bottom: 2px dashed black;
+  background-image: linear-gradient(to right, #161e2e 75%, transparent 75%);
+  background-position: 0 1.5em;
+  background-repeat: repeat-x;
+  background-size: 9px 2px;
+}
+
+.link-decoration {
+  background-image: linear-gradient(to right, #d2d6dc 75%, transparent 75%);
+  background-position: 0 1em;
+  background-repeat: repeat-x;
+  background-size: 1px 8px;
 }
 
 * {
@@ -74,5 +84,5 @@ img {
 }
 
 ::selection {
-  @apply bg-accent-200;
+  @apply bg-gray-200;
 }

@@ -5,7 +5,7 @@ import Timestamp from 'components/Timestamp'
 const PostPreview = ({ name, first_published_at, body, slug }) => (
   <div className="px-4 pt-1 pb-3 mt-3 bg-white rounded">
     <Link href={'/log/[slug]'} as={`/log/${slug}`}>
-      <a className="float-left mt-2 text-xl text-gray-700 hover:text-yellow-300">
+      <a className="float-left mt-2 text-xl text-gray-700 hover:text-gray-500">
         {name}
       </a>
     </Link>

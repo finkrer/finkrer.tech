@@ -1,5 +1,5 @@
 import Layout from 'layout/Layout'
-import Link from 'next/link'
+import InlineLink from 'components/InlineLink'
 
 const Index = () => (
   <Layout title="finkrer.wtf" description="My cool personal website">
@@ -24,19 +24,15 @@ const Index = () => (
       </p>
       <p>
         А пока тут особо нечего смотреть. Можете почитать{' '}
-        <Link href="/log">
-          <a className="text-accent-400 hover:bg-accent-100 hover:text-accent-500">
-            лог
-          </a>
-        </Link>
-        , хоть там пока и всего один пост. Или посмотреть{' '}
-        <Link href="/login">
-          <a className="text-accent-400 hover:bg-accent-100 hover:text-accent-500">
-            страничку логина
-          </a>
-        </Link>
+        <InlineLink href="/log">лог</InlineLink>, хоть там пока и всего один
+        пост. Или посмотреть{' '}
+        <InlineLink href="/login">страничку логина</InlineLink>
         ... но у вас нет токена. А можно ли взломать логин? Я не знаю,
         попробуйте!
+      </p>
+      <p>
+        Сайтик пока что намеренно черно-белый &mdash; не хочу добавлять лишних
+        цветов. Что надо, потом раскрашу.
       </p>
     </article>
   </Layout>

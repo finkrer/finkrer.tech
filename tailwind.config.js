@@ -10,16 +10,14 @@ module.exports = {
       colors: {
         accent: accent,
       },
-      screens: {
-        dark: { raw: '(prefers-color-scheme: dark)' },
-      },
-      boxShadow: { focus: '0 0 0 2px ' + accent[200] },
+      boxShadow: { focus: '0 0 0 2px ' + colors.gray[200] },
     },
   },
   variants: {},
   plugins: [],
   future: {
     removeDeprecatedGapUtilities: true,
+    purgeLayersByDefault: true,
   },
   experimental: 'all',
 }

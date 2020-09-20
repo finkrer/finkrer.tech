@@ -34,28 +34,30 @@ const Login = () => {
               Токен
             </label>
             <input
-              className="block w-full p-2 text-base border-2 border-gray-600 rounded focus:outline-none focus:border-accent-200 hover:border-accent-200"
+              className="block w-full p-2 text-base border-2 border-gray-600 rounded focus:outline-none focus:border-gray-300 hover:border-gray-300"
               name="token"
               id="token"
               type="search"
               autoComplete="new-password"
               ref={register}
             />
-            {result !== null ? (
-              result ? (
-                <p className="text-green-500">Все норм, можно заходить</p>
-              ) : (
-                <p className="text-red-500">Ты пытался :(</p>
-              )
-            ) : (
-              ''
-            )}
           </div>
           <input
-            className="p-3 mt-4 text-xs font-medium tracking-wider text-gray-800 uppercase bg-gray-200 rounded focus:outline-none focus:shadow-focus hover:bg-accent-200"
+            className="p-3 mt-4 text-xs font-medium tracking-wider text-gray-800 uppercase bg-gray-200 rounded focus:outline-none focus:shadow-focus hover:bg-gray-200"
             type="submit"
             value="Попробовать"
           />
+          {result !== null ? (
+            result ? (
+              <span className="ml-4 text-green-500">
+                Все норм, можно заходить
+              </span>
+            ) : (
+              <span className="ml-4 text-red-500">Ты пытался :(</span>
+            )
+          ) : (
+            ''
+          )}
         </form>
       </FlexContainer>
     </Layout>
