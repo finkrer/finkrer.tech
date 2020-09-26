@@ -9,7 +9,7 @@
 html {
   font: 16px / calc(1ex / 0.32) 'Inter', helvetica, arial, sans-serif;
   font-feature-settings: 'calt', 'case', 'ss03', 'ss04';
-  @apply font-medium;
+  font-weight: 450;
 }
 
 @screen sm {
@@ -59,7 +59,7 @@ img {
 }
 
 .link-decoration {
-  background-image: linear-gradient(to right, #d2d6dc 75%, transparent 75%);
+  background-image: linear-gradient(to right, #fce96a 75%, transparent 75%);
   background-position: 0 1em;
   background-repeat: repeat-x;
   background-size: 1px 8px;

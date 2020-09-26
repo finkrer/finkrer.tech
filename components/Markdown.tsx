@@ -3,10 +3,10 @@ import { Remarkable } from 'remarkable'
 const remarkable = new Remarkable()
 
 const Markdown = ({ body, className }) => (
-  <section
+  <div
     className={className}
     dangerouslySetInnerHTML={{ __html: remarkable.render(body) }}
-  ></section>
+  ></div>
 )
 
 export default Markdown

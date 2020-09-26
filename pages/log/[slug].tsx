@@ -6,6 +6,8 @@ import DefaultErrorPage from 'next/error'
 import { GetServerSideProps } from 'next'
 import { Story } from 'storyblok-js-client'
 import { containsToken } from 'lib/auth'
+import React from 'react'
+import FlexContainer from 'layout/FlexContainer'
 
 export const getServerSideProps: GetServerSideProps = async ({
   params,
@@ -41,16 +43,18 @@ const Post = ({ name, first_published_at, body }) => {
 
   return (
     <Layout title={`finkrer.wtf • ${name}`} description="A post">
-      <article>
-        <div className="px-4 pt-1 pb-3 mt-3 bg-white rounded shadow-sm">
-          <h3 className="float-left">{name}</h3>
+      <>
+        <FlexContainer className="mt-4">
+          <h1 className="mt-2 text-4xl font-medium text-gray-900 hover:text-gray-700">
+            {name}
+          </h1>
           <Timestamp
             datetime={first_published_at}
-            className="float-right p-0 mt-2 text-sm text-gray-500"
+            className="block p-0 mt-1 text-sm tracking-wide text-gray-500"
           />
-          <Markdown body={body} className="inline-block ml-4" />
-        </div>
-      </article>
+          <Markdown body={body} className="inline-block" />
+        </FlexContainer>
+      </>
     </Layout>
   )
 }
