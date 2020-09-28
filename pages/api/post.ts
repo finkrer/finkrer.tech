@@ -12,7 +12,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const token = req.cookies.token
 
   if (!tokenIsCorrect(token)) {
-    res.status(401).json({ success: false })
+    res.status(401).send('Unauthorized')
     return
   }
 
@@ -29,8 +29,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     },
     publish: 1,
   })
-    .then((_) => res.status(201).json({ success: true }))
-    .catch((_) => res.status(422).json({ success: false }))
+    .then((_) => res.status(201).send('Post created'))
+    .catch((_) => res.status(422).send('Incorrect post object format'))
 
   flushStoryblokCache()
 }

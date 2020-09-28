@@ -8,5 +8,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   res.setHeader('Set-Cookie', 'token=; Expires=Thu, 01 Jan 1970 00:00:00 GMT')
 
-  res.status(204).json({ success: true })
+  res.status(204).send('Logged out')
 }

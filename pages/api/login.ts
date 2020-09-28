@@ -12,7 +12,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const token = req.body
 
   if (!tokenIsCorrect(token)) {
-    res.status(401).json({ success: false })
+    res.status(401).send('Unauthorized')
     return
   }
 
@@ -21,5 +21,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     `token=${token};${isProduction ? ' Secure;' : ''} SameSite=Strict; Path=/`
   )
 
-  res.status(201).json({ success: true })
+  res.status(201).send('Login successful')
 }
