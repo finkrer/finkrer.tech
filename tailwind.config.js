@@ -4,7 +4,7 @@ const colors = palette.default.theme.colors
 const accent = colors.yellow
 
 module.exports = {
-  purge: ['./pages/**/*.tsx', './components/**/*.tsx', './layout/**/*.tsx'],
+  purge: ['**/*.tsx'],
   theme: {
     extend: {
       colors: {
