@@ -7,7 +7,6 @@ import { GetServerSideProps } from 'next'
 import { Story } from 'storyblok-js-client'
 import { containsToken } from 'lib/auth'
 import React from 'react'
-import FlexContainer from 'layout/FlexContainer'
 
 export const getServerSideProps: GetServerSideProps = async ({
   params,
@@ -43,18 +42,16 @@ const Post = ({ name, first_published_at, body }) => {
 
   return (
     <Layout title={`finkrer.wtf • ${name}`} description="A post">
-      <>
-        <FlexContainer className="mt-4">
-          <h1 className="mt-2 text-4xl font-medium text-gray-900 hover:text-gray-700">
-            {name}
-          </h1>
-          <Timestamp
-            datetime={first_published_at}
-            className="block p-0 mt-1 text-sm tracking-wide text-gray-500"
-          />
-          <Markdown body={body} className="inline-block" />
-        </FlexContainer>
-      </>
+      <div className="mt-4">
+        <h1 className="block mt-2 text-4xl font-medium text-gray-900">
+          {name}
+        </h1>
+        <Timestamp
+          datetime={first_published_at}
+          className="p-0 mt-1 text-sm tracking-wide text-gray-500"
+        />
+        <Markdown body={body} className="" />
+      </div>
     </Layout>
   )
 }

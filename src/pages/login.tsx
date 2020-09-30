@@ -17,7 +17,7 @@ const Login = () => {
       cache: 'no-cache',
       credentials: 'same-origin',
       body: data.token,
-    }).then((res) => (res.ok ? setResult(true) : setResult(false)))
+    }).then((res) => setResult(res.ok ? true : false))
   }
 
   return (
