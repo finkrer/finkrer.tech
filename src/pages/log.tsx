@@ -3,6 +3,7 @@ import PostList from 'components/PostList'
 import { StoryblokCDA as Storyblok } from 'lib/storyblok'
 import { GetServerSideProps } from 'next'
 import { containsToken } from 'lib/auth'
+import { Post, toPost } from 'lib/data'
 
 export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   const cookie = req.headers.cookie
@@ -10,21 +11,15 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   const res = await Storyblok.getStories()
 
   const posts = res.data.stories
-    .filter((story) => authorized || story.content.public)
-    .map((story) => ({
-      id: story.id,
-      name: story.name,
-      slug: story.slug,
-      first_published_at: story.first_published_at,
-      body: story.content.body,
-    }))
+    .filter(story => authorized || story.content.public)
+    .map(toPost)
 
   return {
     props: { posts },
   }
 }
 
-const Log = ({ posts }) => {
+const Log = ({ posts }: { posts: Post[] }) => {
   return (
     <Layout title="Log &bull; finkrer.wtf" description="My personal blog">
       <PostList posts={posts} />

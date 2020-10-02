@@ -29,8 +29,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     },
     publish: 1,
   })
-    .then((_) => res.status(201).send('Post created'))
-    .catch((_) => res.status(422).send('Incorrect post object format'))
+    .then(_ => res.status(201).send('Post created'))
+    .catch(_ => res.status(422).send('Incorrect post object format'))
 
   flushStoryblokCache()
 }

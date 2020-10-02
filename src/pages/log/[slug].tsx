@@ -6,7 +6,7 @@ import DefaultErrorPage from 'next/error'
 import { GetServerSideProps } from 'next'
 import { Story } from 'storyblok-js-client'
 import { containsToken } from 'lib/auth'
-import React from 'react'
+import { Post, toPost } from 'lib/data'
 
 export const getServerSideProps: GetServerSideProps = async ({
   params,
@@ -14,46 +14,46 @@ export const getServerSideProps: GetServerSideProps = async ({
 }) => {
   const cookie = req.headers.cookie
   const authorized = containsToken(cookie)
-  let post: Story
+  let res: Story
 
   await Storyblok.getStory(`posts/${params.slug}`)
-    .then((story) => (post = story))
-    .catch((_) => {
-      post = null
+    .then(story => (res = story))
+    .catch(_ => {
+      res = null
     })
 
-  if (!post || (!post.data.story.content.public && !authorized)) {
+  const story = res.data.story
+
+  if (!res || (!story.content.public && !authorized)) {
     return { props: {} }
   }
 
+  const post = toPost(story)
+
   return {
-    props: {
-      name: post.data.story.name,
-      first_published_at: post.data.story.first_published_at,
-      body: post.data.story.content.body,
-    },
+    props: { post },
   }
 }
 
-const Post = ({ name, first_published_at, body }) => {
-  if (!body) {
+const PostPage = ({ post }: { post: Post }) => {
+  if (!post.content) {
     return <DefaultErrorPage statusCode={404} title="Post not found" />
   }
 
   return (
-    <Layout title={`finkrer.wtf • ${name}`} description="A post">
+    <Layout title={`finkrer.wtf • ${post.name}`} description="A post">
       <div className="mt-4">
         <h1 className="block mt-2 text-4xl font-medium text-gray-900">
-          {name}
+          {post.name}
         </h1>
         <Timestamp
-          datetime={first_published_at}
+          datetime={post.first_published_at}
           className="p-0 mt-1 text-sm tracking-wide text-gray-500"
         />
-        <Markdown body={body} className="" />
+        <Markdown body={post.content.body} className="" />
       </div>
     </Layout>
   )
 }
 
-export default Post
+export default PostPage
