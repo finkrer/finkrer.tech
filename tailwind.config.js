@@ -10,7 +10,6 @@ module.exports = {
       colors: {
         accent: accent,
       },
-      boxShadow: { focus: '0 0 0 2px ' + colors.gray[200] },
     },
   },
   variants: {},

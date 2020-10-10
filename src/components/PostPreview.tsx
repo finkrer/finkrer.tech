@@ -4,7 +4,7 @@ import Timestamp from 'components/Timestamp'
 import { Post } from 'lib/data'
 
 const PostPreview = ({ post }: { post: Post }) => (
-  <Link href={'/log/[slug]'} as={`/log/${post.slug}`}>
+  <Link href={`/log/${post.slug}`}>
     <a>
       <div className="p-4 rounded-md group hover:bg-gray-50">
         <h1 className="block mt-2 text-2xl font-medium text-gray-900">

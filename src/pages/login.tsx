@@ -17,7 +17,7 @@ const Login = () => {
       cache: 'no-cache',
       credentials: 'same-origin',
       body: data.token,
-    }).then((res) => setResult(res.ok))
+    }).then(res => setResult(res.ok))
   }
 
   return (
@@ -43,7 +43,7 @@ const Login = () => {
             />
           </div>
           <input
-            className="p-3 mt-4 text-xs font-medium tracking-wider text-gray-800 uppercase bg-gray-100 rounded focus:outline-none focus:shadow-focus hover:bg-gray-200"
+            className="p-3 mt-4 text-xs font-medium tracking-wide text-gray-800 bg-gray-100 rounded hover:bg-gray-200"
             type="submit"
             value="Мне повезёт!"
           />
