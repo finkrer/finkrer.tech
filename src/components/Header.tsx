@@ -11,10 +11,10 @@ const Header = () => (
           finkrer<span className="text-accent-200">.</span>
         </NavItem>
         <NavItem
-          href="/log"
+          href="/blog"
           className="inline-block px-6 mt-1 ml-8 text-lg lowercase rounded hover:bg-gray-200"
         >
-          Лог
+          Блог
         </NavItem>
       </menu>
     </nav>

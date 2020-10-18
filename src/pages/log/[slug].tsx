@@ -6,7 +6,6 @@ import DefaultErrorPage from 'next/error'
 import { GetServerSideProps } from 'next'
 import { Story } from 'storyblok-js-client'
 import { containsToken } from 'lib/auth'
-import { Post, toPost } from 'lib/data'
 
 export const getServerSideProps: GetServerSideProps = async ({
   params,
@@ -22,20 +21,18 @@ export const getServerSideProps: GetServerSideProps = async ({
       res = null
     })
 
-  const story = res.data.story
+  const post = res.data.story
 
-  if (!res || (!story.content.public && !authorized)) {
+  if (!res || (!post.content.public && !authorized)) {
     return { props: {} }
   }
-
-  const post = toPost(story)
 
   return {
     props: { post },
   }
 }
 
-const PostPage = ({ post }: { post: Post }) => {
+const PostPage = ({ post }) => {
   if (!post.content) {
     return <DefaultErrorPage statusCode={404} title="Post not found" />
   }

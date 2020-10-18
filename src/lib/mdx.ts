@@ -1,0 +1,37 @@
+import path from 'path'
+import fs from 'fs'
+import matter from 'gray-matter'
+import renderToString from 'next-mdx-remote/render-to-string'
+import { Post, PostFrontMatter, PostInfo } from 'lib/data'
+
+export const getPostList = (): PostInfo[] => {
+  const postDirectory = path.join(process.cwd(), 'src/posts')
+  const filenames = fs.readdirSync(postDirectory)
+
+  const posts = filenames.map(filename => {
+    const filePath = path.join(postDirectory, filename)
+    const fileContents = fs.readFileSync(filePath, 'utf-8')
+
+    const {data} = matter(fileContents)
+    const slug = path.basename(filename, '.mdx')
+
+    return {
+      slug,
+      frontMatter: data as PostFrontMatter
+    }
+  })
+
+  return posts
+}
+
+export const getPost = async (slug: string): Promise<Post> => {
+  const filePath = path.join(process.cwd(), 'src/posts', `${slug}.mdx`)
+  const fileContents = fs.readFileSync(filePath, 'utf-8')
+
+  const {content, data} = matter(fileContents)
+
+
+  const mdxSource = await renderToString(content)
+  
+  return {source: mdxSource, frontMatter: data as PostFrontMatter}
+}
