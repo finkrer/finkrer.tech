@@ -25,7 +25,7 @@ export const getPostList = (): PostInfo[] => {
 }
 
 export const getPost = async (slug: string): Promise<Post> => {
-  const filePath = path.join(process.cwd(), 'src/posts', `${slug}.mdx`)
+  const filePath = path.join(process.cwd(), 'posts', `${slug}.mdx`)
   const fileContents = fs.readFileSync(filePath, 'utf-8')
 
   const {content, data} = matter(fileContents)
