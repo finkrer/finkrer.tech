@@ -5,7 +5,7 @@ import renderToString from 'next-mdx-remote/render-to-string'
 import { Post, PostFrontMatter, PostInfo } from 'lib/data'
 
 export const getPostList = (): PostInfo[] => {
-  const postDirectory = path.join(process.cwd(), 'src/posts')
+  const postDirectory = path.join(process.cwd(), 'posts')
   const filenames = fs.readdirSync(postDirectory)
 
   const posts = filenames.map(filename => {

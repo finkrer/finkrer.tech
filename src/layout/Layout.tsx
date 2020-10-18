@@ -9,13 +9,15 @@ const Layout = ({ title, description, children }) => {
   const [prevPos, setPrevPos] = useState(Number)
   const handleScroll = () => {
     const currentPos = window.pageYOffset
-    
+
     document
       .querySelectorAll('.navbar')
       .forEach(e =>
         e.setAttribute(
           'style',
-          prevPos >= currentPos ? 'bottom: 0; transition: bottom 0.3s ease-out' : 'bottom: -4rem; transition: bottom 0.3s ease-in'
+          prevPos >= currentPos
+            ? 'bottom: 0; transition: bottom 0.3s ease-out'
+            : 'bottom: -4rem; transition: bottom 0.3s ease-in'
         )
       )
     setPrevPos(currentPos)

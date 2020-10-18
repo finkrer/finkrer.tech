@@ -12,7 +12,7 @@ const Header = () => (
         </NavItem>
         <NavItem
           href="/blog"
-          className="inline-block px-6 mt-1 ml-8 text-lg lowercase rounded hover:bg-gray-200"
+          className="inline-block px-4 py-1 mt-1 ml-8 text-lg lowercase rounded hover:bg-gray-200"
         >
           Блог
         </NavItem>
