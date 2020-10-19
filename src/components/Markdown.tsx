@@ -1,11 +1,12 @@
-import { Remarkable } from 'remarkable'
-
-const remarkable = new Remarkable()
+import remark from 'remark'
+import html from 'remark-html'
 
 const Markdown = ({ body, className }) => (
   <div
     className={className}
-    dangerouslySetInnerHTML={{ __html: remarkable.render(body) }}
+    dangerouslySetInnerHTML={{
+      __html: remark().use(html).processSync(body).toString(),
+    }}
   ></div>
 )
 

@@ -2,7 +2,7 @@ import { PostInfo } from 'lib/data'
 import { getPostList } from 'lib/mdx'
 import { GetStaticProps } from 'next'
 import Layout from 'layout/Layout'
-import PostList from 'components/PostList'
+import PostPreview from 'components/PostPreview'
 
 export const getStaticProps: GetStaticProps = async () => {
   const posts = getPostList().filter(post => post.frontMatter.public)
@@ -13,7 +13,11 @@ export const getStaticProps: GetStaticProps = async () => {
 const Blog = ({ posts }: { posts: PostInfo[] }) => {
   return (
     <Layout title="Log &bull; finkrer.wtf" description="My personal blog">
-      <PostList posts={posts} />
+      <section className="mt-4">
+        {posts.map(post => (
+          <PostPreview key={post.slug} post={post} />
+        ))}
+      </section>
     </Layout>
   )
 }

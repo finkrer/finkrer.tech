@@ -20,7 +20,8 @@
     "react": "16.14.0",
     "react-dom": "16.14.0",
     "react-hook-form": "^6.9.4",
-    "remarkable": "^2.0.1",
+    "remark": "^13.0.0",
+    "remark-html": "^13.0.1",
     "storyblok-js-client": "^3.1.1",
     "tailwindcss": "^1.9.4",
     "typescript": "^4.0.3"
