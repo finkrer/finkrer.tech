@@ -1,4 +1,5 @@
 import NavItem from 'components/NavItem'
+import Link from 'next/link'
 
 const Header = () => (
   <header>
@@ -8,13 +9,18 @@ const Header = () => (
           href="/"
           className="inline-block text-3xl font-medium tracking-wide rounded"
         >
-          finkrer<span className="text-accent-200">.</span>
+          finkrer
+          <span className="text-accent-200">
+            <Link href="/admin">
+              <a>.</a>
+            </Link>
+          </span>
         </NavItem>
         <NavItem
-          href="/blog"
+          href="/about"
           className="inline-block px-4 py-1 mt-1 ml-8 text-lg lowercase rounded hover:bg-gray-200"
         >
-          Блог
+          Обо мне
         </NavItem>
       </menu>
     </nav>

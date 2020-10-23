@@ -36,15 +36,15 @@ const PostPage = ({ source, frontMatter }: Post) => {
       title={`finkrer.wtf • ${frontMatter.title}`}
       description={frontMatter.description}
     >
-      <div className="mt-20">
-        <h1 className="block mt-2 text-4xl font-medium text-gray-900">
+      <div className="mt-16">
+        <h1 className="block mt-2 mb-2 text-4xl font-medium text-gray-900">
           {frontMatter.title}
         </h1>
         <Timestamp
           datetime={frontMatter.date}
-          className="p-0 mt-1 text-sm tracking-wide text-gray-500"
+          className="p-0 mt-32 text-sm tracking-wide text-gray-500"
         />
-        <div className="mt-6">{hydrate(source)}</div>
+        <div className="mt-4">{hydrate(source)}</div>
       </div>
     </Layout>
   )

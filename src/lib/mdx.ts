@@ -30,7 +30,6 @@ export const getPost = async (slug: string): Promise<Post> => {
 
   const {content, data} = matter(fileContents)
 
-
   const mdxSource = await renderToString(content)
   
   return {source: mdxSource, frontMatter: data as PostFrontMatter}
