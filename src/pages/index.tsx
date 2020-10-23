@@ -1,42 +1,25 @@
+import { PostInfo } from 'lib/data'
+import { getPostList } from 'lib/mdx'
+import { GetStaticProps } from 'next'
 import Layout from 'layout/Layout'
-import InlineLink from 'components/InlineLink'
+import PostPreview from 'components/PostPreview'
 
-const Index = () => (
-  <Layout title="finkrer.wtf" description="My cool personal website">
-    <article>
-      <h1 className="text-3xl">Приветики</h1>
-      <p>Я Женя! Это мой сайт.</p>
-      <p>
-        Что у меня тут такое? Наверное, когда-нибудь тут будет мой блог, а еще
-        что-нибудь написано про меня и все такое.
-      </p>
-      <p>
-        На самом деле, блог уже есть и работает, но мне надо все доделать,
-        прежде чем я буду что-то туда писать.
-      </p>
-      <p>
-        В первую очередь мне интересно разбираться, как работает веб. Для этого
-        и был создан этот сайт.
-      </p>
-      <p>
-        Если получится что-то нормальное, я буду рад, и, наверное, напишу в
-        блоге, как я все делал.
-      </p>
-      <p>
-        А пока тут особо нечего смотреть. Можете почитать{' '}
-        <InlineLink href="/blog">блог</InlineLink>, хоть там пока и всего один
-        пост. Или посмотреть{' '}
-        <InlineLink href="/login">страничку логина</InlineLink>
-        ... но у вас нет токена. А можно ли взломать логин? Я не знаю,
-        попробуйте!
-      </p>
-      <p className="sm:hidden">
-        Посколько вы используете телефон, вся навигация снизу! Надеюсь, это
-        удобно.
-      </p>
-      <p className="sm:hidden">Корректность работы навбара не гарантирована!</p>
-    </article>
-  </Layout>
-)
+export const getStaticProps: GetStaticProps = async () => {
+  const posts = getPostList().filter(post => post.frontMatter.public)
+
+  return { props: { posts } }
+}
+
+const Index = ({ posts }: { posts: PostInfo[] }) => {
+  return (
+    <Layout title="Log &bull; finkrer.wtf" description="My personal blog">
+      <section className="mt-4">
+        {posts.map(post => (
+          <PostPreview key={post.slug} post={post} />
+        ))}
+      </section>
+    </Layout>
+  )
+}
 
 export default Index

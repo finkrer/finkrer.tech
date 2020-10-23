@@ -1,12 +1,10 @@
 import Layout from 'layout/Layout'
-import PostList from 'components/PostList'
 import { StoryblokCDA as Storyblok } from 'lib/storyblok'
 import { GetServerSideProps } from 'next'
-import { containsToken } from 'lib/auth'
+import { isAuthorized } from 'lib/auth'
 
 export const getServerSideProps: GetServerSideProps = async ({ req }) => {
-  const cookie = req.headers.cookie
-  const authorized = containsToken(cookie)
+  const authorized = isAuthorized(req)
   const res = await Storyblok.getStories()
 
   const posts = res.data.stories.filter(
@@ -21,7 +19,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
 const Log = ({ posts }) => {
   return (
     <Layout title="Log &bull; finkrer.wtf" description="My personal blog">
-      <PostList posts={posts} />
+      {posts}
     </Layout>
   )
 }
