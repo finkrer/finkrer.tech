@@ -1,11 +1,10 @@
-import remark from 'remark'
-import html from 'remark-html'
+import renderMarkdown from 'snarkdown'
 
 const Markdown = ({ body, className }) => (
   <div
     className={className}
     dangerouslySetInnerHTML={{
-      __html: remark().use(html).processSync(body).toString(),
+      __html: renderMarkdown(body),
     }}
   ></div>
 )

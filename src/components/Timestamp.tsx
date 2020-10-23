@@ -1,9 +1,12 @@
-import moment from 'moment'
+import dayjs from 'dayjs'
+import relativeTime from 'dayjs/plugin/relativeTime'
+import 'dayjs/locale/ru'
 import { useState } from 'react'
 
 const Timestamp = ({ datetime, className }) => {
   const [showFull, setShowFull] = useState(false)
-  const m = moment(datetime).locale('ru')
+  dayjs.extend(relativeTime)
+  const m = dayjs(datetime).locale('ru')
 
   return (
     <time
