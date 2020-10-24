@@ -6,7 +6,7 @@ import ContentContainer from 'layout/ContentContainer'
 import { useEffect, useState } from 'react'
 
 const Layout = ({ title, description, children }) => {
-  const [prevPos, setPrevPos] = useState(Number)
+  const [prevPos, setPrevPos] = useState(0)
   const handleScroll = () => {
     const currentPos = window.pageYOffset
 
@@ -16,8 +16,8 @@ const Layout = ({ title, description, children }) => {
         e.setAttribute(
           'style',
           prevPos >= currentPos
-            ? 'bottom: 0; transition: bottom 0.3s ease-out'
-            : 'bottom: -4rem; transition: bottom 0.3s ease-in'
+            ? 'bottom: 0; transition: bottom 0.2s ease-out'
+            : 'bottom: -4rem; transition: bottom 0.2s ease-in'
         )
       )
     setPrevPos(currentPos)

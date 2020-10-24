@@ -1,7 +1,7 @@
 const palette = require('tailwindcss/lib/flagged/uniformColorPalette')
 const colors = palette.default.theme.colors
 
-const accent = colors.yellow
+const accent = colors.green
 
 module.exports = {
   purge: ['**/*.tsx'],

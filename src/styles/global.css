@@ -10,6 +10,7 @@ html {
   font: 16px / calc(1ex / 0.32) 'Inter', helvetica, arial, sans-serif;
   font-feature-settings: 'calt', 'case', 'ss03', 'ss04';
   font-weight: 450;
+  text-rendering: optimizeLegibility;
 }
 
 @screen sm {

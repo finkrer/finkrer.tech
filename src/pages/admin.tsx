@@ -2,6 +2,7 @@ import FlexContainer from 'layout/FlexContainer'
 import Layout from 'layout/Layout'
 import { isAuthorized } from 'lib/auth'
 import { GetServerSideProps } from 'next'
+import Link from 'components/BetterLink'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 
@@ -10,11 +11,9 @@ type FormData = {
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ req }) => {
-  const authorized = isAuthorized(req)
-
   return {
     props: {
-      authorized: authorized,
+      isAuthorized: isAuthorized(req),
     },
   }
 }
@@ -39,14 +38,14 @@ const LoginPage = ({ setAuth }) => {
     <Layout title="Login &bull; finkrer.wtf" description="The login page, duh">
       <FlexContainer>
         <p className="text-sm leading-6 text-gray-400">
-          Здесь можно залогиниться... в теории.
+          Here you can log in... at least in theory.
           <br />
-          Нужно всего-то лишь знать секретный токен.
+          All you need is a secret token.
         </p>
         <form className="mt-8" onSubmit={handleSubmit(onSubmit)}>
           <div>
             <label className="ml-1 text-gray-800" htmlFor="token">
-              Токен
+              Token
             </label>
             <input
               className="block w-full p-2 text-base border-b-2 rounded-sm bg-gray-50 focus:outline-none focus:border-accent-300 hover:border-accent-300"
@@ -60,16 +59,16 @@ const LoginPage = ({ setAuth }) => {
           <input
             className="p-3 mt-4 text-xs font-medium tracking-wide text-gray-800 bg-gray-100 rounded hover:bg-gray-200"
             type="submit"
-            value="Мне повезёт!"
+            value="I'm feeling lucky!"
           />
           {result !== null ? (
             result ? (
-              <span className="ml-4 text-sm text-green-500">
-                Все норм, можно заходить
+              <span className="ml-4 text-sm tracking-wide text-green-500 uppercase">
+                Access granted
               </span>
             ) : (
-              <span className="ml-4 text-sm text-red-500">
-                Нет, это вряд ли
+              <span className="ml-4 text-sm tracking-wide text-red-500 uppercase">
+                Access denied
               </span>
             )
           ) : (
@@ -97,15 +96,30 @@ const AdminPage = ({ setAuth }) => {
   return (
     <Layout title="Admin &bull; finkrer.wtf" description="Admin page">
       <FlexContainer>
-        <p>Привет, админ</p>
-        <form className="mt-2" onSubmit={handleSubmit(onSubmit)}>
+        <p className="mt-8">
+          Duuude, you know the token, right? You are so cool, damn. Amazing.
+        </p>
+        <form className="" onSubmit={handleSubmit(onSubmit)}>
           <input
             className="p-3 mt-4 text-xs font-medium tracking-wide text-gray-800 bg-gray-100 rounded hover:bg-gray-200"
             type="submit"
-            value="Выйти"
+            value="&mdash; I don't wanna be cool, just let me out!"
             ref={register}
           />
         </form>
+        <p>
+          Now, since you're so cool and all, you have access to these restricted
+          sections of the site.
+        </p>
+        <FlexContainer className="mt-4">
+          <Link
+            href="/log"
+            className="inline-block p-3 text-xs font-medium tracking-wide text-gray-800 bg-gray-100 rounded w-min hover:bg-accent-100"
+          >
+            Log
+          </Link>
+        </FlexContainer>
+        <p>I know that's not much, but there will be more!</p>
       </FlexContainer>
     </Layout>
   )
