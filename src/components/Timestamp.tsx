@@ -1,8 +1,13 @@
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
-import { useState } from 'react'
+import { FC, useState } from 'react'
 
-const Timestamp = ({ datetime, className }) => {
+type Props = {
+  datetime: string | Date
+  className: string
+}
+
+const Timestamp: FC<Props> = ({ datetime, className }) => {
   const [showFull, setShowFull] = useState(false)
   dayjs.extend(relativeTime)
   const m = dayjs(datetime)

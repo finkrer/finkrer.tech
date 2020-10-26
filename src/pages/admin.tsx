@@ -3,7 +3,7 @@ import Layout from 'layout/Layout'
 import { isAuthorized } from 'lib/auth'
 import { GetServerSideProps } from 'next'
 import Link from 'components/BetterLink'
-import { useState } from 'react'
+import { FC, useState } from 'react'
 import { useForm } from 'react-hook-form'
 
 type FormData = {
@@ -18,9 +18,13 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   }
 }
 
-const LoginPage = ({ setAuth }) => {
+type Props = {
+  setAuth: (value: boolean) => void
+}
+
+const LoginPage: FC<Props> = ({ setAuth }) => {
   const { register, handleSubmit } = useForm<FormData>()
-  const [result, setResult] = useState(null as boolean)
+  const [result, setResult] = useState<boolean | undefined>(undefined)
 
   const onSubmit = (data: FormData) => {
     fetch('/api/session', {
@@ -61,7 +65,7 @@ const LoginPage = ({ setAuth }) => {
             type="submit"
             value="I'm feeling lucky!"
           />
-          {result !== null ? (
+          {result !== undefined ? (
             result ? (
               <span className="ml-4 text-sm tracking-wide text-green-500 uppercase">
                 Access granted
@@ -80,7 +84,7 @@ const LoginPage = ({ setAuth }) => {
   )
 }
 
-const AdminPage = ({ setAuth }) => {
+const AdminPage: FC<Props> = ({ setAuth }) => {
   const { register, handleSubmit } = useForm()
 
   const onSubmit = () => {

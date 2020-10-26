@@ -1,11 +1,16 @@
 import Link from 'next/link'
 import Timestamp from 'components/Timestamp'
 import { PostInfo } from 'lib/data'
+import { FC } from 'react'
 
-const PostPreview = ({ post }: { post: PostInfo }) => (
+type Props = {
+  post: PostInfo
+}
+
+const PostPreview: FC<Props> = ({ post }) => (
   <Link href={`/blog/${post.slug}`}>
     <a>
-      <div className="p-4 pb-6 rounded-md group hover:bg-gray-50">
+      <div className="p-4 pt-2 -my-0 rounded-md sm:-mx-4 group hover:bg-gray-50">
         <h1 className="block mt-2 text-2xl font-medium text-gray-900">
           {post.frontMatter.title}
         </h1>

@@ -5,9 +5,10 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import { getPost, getPostList } from 'lib/mdx'
 import hydrate from 'next-mdx-remote/hydrate'
 import { Post } from 'lib/data'
+import { FC } from 'react'
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  if (typeof params.slug !== 'string') return
+  if (typeof params?.slug !== 'string') return { props: {} }
 
   const post = await getPost(params.slug)
   if (!post.frontMatter.public) return { props: {} }
@@ -26,7 +27,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 }
 
-const PostPage = ({ source, frontMatter }: Post) => {
+const PostPage: FC<Post> = ({ source, frontMatter }) => {
   if (!source) {
     return <DefaultErrorPage statusCode={404} title="Post not found" />
   }
@@ -36,13 +37,13 @@ const PostPage = ({ source, frontMatter }: Post) => {
       title={`finkrer.wtf • ${frontMatter.title}`}
       description={frontMatter.description}
     >
-      <div className="mt-16">
+      <div className="mt-8">
         <h1 className="block mt-2 mb-2 text-4xl font-medium text-gray-900">
           {frontMatter.title}
         </h1>
         <Timestamp
           datetime={frontMatter.date}
-          className="p-0 mt-32 text-sm tracking-wide text-gray-500"
+          className="p-0 text-sm tracking-wide text-gray-500"
         />
         <div className="mt-4">{hydrate(source)}</div>
       </div>

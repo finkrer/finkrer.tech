@@ -12,7 +12,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
 const Index = ({ posts }: { posts: PostInfo[] }) => {
   return (
-    <Layout title="Log &bull; finkrer.wtf" description="My personal blog">
+    <Layout title="finkrer.wtf" description="My personal blog">
       <section className="mt-4">
         {posts.map(post => (
           <PostPreview key={post.slug} post={post} />

@@ -3,9 +3,14 @@ import Router from 'next/router'
 import Header from 'components/Header'
 import FlexContainer from 'layout/FlexContainer'
 import ContentContainer from 'layout/ContentContainer'
-import { useEffect, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 
-const Layout = ({ title, description, children }) => {
+type Props = {
+  title: string
+  description: string
+}
+
+const Layout: FC<Props> = ({ title, description, children }) => {
   const [prevPos, setPrevPos] = useState(0)
   const handleScroll = () => {
     const currentPos = window.pageYOffset

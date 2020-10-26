@@ -1,6 +1,12 @@
+import { FC } from 'react'
 import renderMarkdown from 'snarkdown'
 
-const Markdown = ({ body, className }) => (
+type Props = {
+  body: string
+  className: string
+}
+
+const Markdown: FC<Props> = ({ body, className }) => (
   <div
     className={className}
     dangerouslySetInnerHTML={{

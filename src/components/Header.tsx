@@ -1,6 +1,11 @@
 import Link from 'components/BetterLink'
+import { FC } from 'react'
 
-const NavItem = ({ href, children }) => (
+type Props = {
+  href: string
+}
+
+const NavItem: FC<Props> = ({ href, children }) => (
   <ul>
     <Link
       href={href}

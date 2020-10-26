@@ -4,7 +4,7 @@ export interface PostInfo {
 }
 
 export interface Post {
-  readonly source: string
+  readonly source: object
   readonly frontMatter: PostFrontMatter
 }
 
