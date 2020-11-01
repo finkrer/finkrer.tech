@@ -1,5 +1,5 @@
 declare module 'next-mdx-remote/render-to-string' {
-  export default async function renderToString(source: string, options?: {components?: object, mdxOptions?: object, scope?: object}): object
+  export default async function renderToString(source: string, options?: {components?: object, mdxOptions?: object, scope?: object}): Promise<object>
 }
 
 declare module 'next-mdx-remote/hydrate' {
