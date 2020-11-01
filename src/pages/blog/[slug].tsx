@@ -19,8 +19,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
     paths: getPostList()
-      .filter(p => p.frontMatter.public)
-      .map(p => {
+      .filter((p) => p.frontMatter.public)
+      .map((p) => {
         return { params: { slug: p.slug } }
       }),
     fallback: false,

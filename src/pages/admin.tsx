@@ -32,7 +32,7 @@ const LoginPage: FC<Props> = ({ setAuth }) => {
       cache: 'no-cache',
       credentials: 'same-origin',
       body: data.token,
-    }).then(res => {
+    }).then((res) => {
       setResult(res.ok)
       if (res.ok) setAuth(true)
     })
@@ -92,7 +92,7 @@ const AdminPage: FC<Props> = ({ setAuth }) => {
       method: 'DELETE',
       cache: 'no-cache',
       credentials: 'same-origin',
-    }).then(res => {
+    }).then((res) => {
       if (res.ok) setAuth(false)
     })
   }

@@ -17,7 +17,7 @@ const Layout: FC<Props> = ({ title, description, children }) => {
 
     document
       .querySelectorAll('.navbar')
-      .forEach(e =>
+      .forEach((e) =>
         e.setAttribute(
           'style',
           prevPos >= currentPos

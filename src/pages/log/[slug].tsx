@@ -13,7 +13,7 @@ export const getServerSideProps: GetServerSideProps = async ({
   if (typeof params?.slug !== 'string') return { props: {} }
   const authorized = isAuthorized(req)
 
-  const res = await Storyblok.getStory(`log/${params.slug}`).catch(_ => null)
+  const res = await Storyblok.getStory(`log/${params.slug}`).catch((_) => null)
 
   if (!authorized || res == null) return { props: {} }
 
