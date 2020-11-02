@@ -31,6 +31,20 @@ html {
 }
 
 .dark-theme {
+  --fg: theme('colors.gray.300');
+  --bg: #121212;
+  --accent: theme('colors.green.300');
+  --strong_accent: theme('colors.green.400');
+  --hover: #212121;
+  --faded: theme('colors.gray.400');
+  --navbar: #272727;
+  --navbar_hover: #363636;
+  --button: #272727;
+  --button_fg: theme('colors.gray.100');
+  --button_hover: #363636;
+  --selection: theme('colors.gray.400');
+  --positive: theme('colors.green.400');
+  --negative: theme('colors.red.400');
 }
 
 @screen sm {
@@ -105,5 +119,5 @@ img {
 }
 
 ::selection {
-  @apply bg-gray-200;
+  @apply bg-selection;
 }

@@ -18,7 +18,7 @@ class MyDocument extends Document {
         <Head>
           <link rel="icon" type="image/png" href="data:image/png;base64," />
         </Head>
-        <body className="light-theme">
+        <body className="dark-theme">
           <Main />
           <NextScript />
         </body>

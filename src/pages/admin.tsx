@@ -61,7 +61,7 @@ const LoginPage: FC<Props> = ({ setAuth }) => {
             />
           </div>
           <input
-            className="p-3 mt-4 text-xs font-medium tracking-wide rounded text-fg bg-button hover:bg-button_hover"
+            className="p-3 mt-4 text-xs font-medium tracking-wide rounded text-button_fg bg-button hover:bg-button_hover"
             type="submit"
             value="I'm feeling lucky!"
           />
