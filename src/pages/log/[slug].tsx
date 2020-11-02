@@ -32,12 +32,10 @@ const PostPage = ({ post }: any) => {
   return (
     <Layout title={`finkrer.wtf • ${post.name}`} description="A post">
       <div className="mt-4">
-        <h1 className="block mt-2 text-4xl font-medium text-gray-900">
-          {post.name}
-        </h1>
+        <h1 className="block mt-2 text-4xl font-medium text-fg">{post.name}</h1>
         <Timestamp
           datetime={post.first_published_at}
-          className="p-0 mt-1 text-sm tracking-wide text-gray-500"
+          className="p-0 mt-1 text-sm tracking-wide text-faded"
         />
         <Markdown body={post.content.body} className="" />
       </div>

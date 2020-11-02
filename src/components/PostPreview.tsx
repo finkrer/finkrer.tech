@@ -10,13 +10,13 @@ type Props = {
 const PostPreview: FC<Props> = ({ post }) => (
   <Link href={`/blog/${post.slug}`}>
     <a>
-      <div className="p-4 pt-2 -my-0 rounded-md sm:-mx-4 group hover:bg-gray-50">
-        <h1 className="block mt-2 text-2xl font-medium text-gray-900">
+      <div className="p-4 pt-2 -my-0 rounded-md sm:-mx-4 group hover:bg-hover">
+        <h1 className="block mt-2 text-2xl font-medium text-fg">
           {post.frontMatter.title}
         </h1>
         <Timestamp
           datetime={post.frontMatter.date}
-          className="p-0 mt-1 text-sm tracking-wide text-gray-500"
+          className="p-0 mt-1 text-sm tracking-wide text-faded"
         />
         <p className="mt-1 text-base">{post.frontMatter.description}</p>
       </div>

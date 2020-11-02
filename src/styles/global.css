@@ -13,6 +13,26 @@ html {
   text-rendering: optimizeLegibility;
 }
 
+.light-theme {
+  --fg: theme('colors.gray.900');
+  --bg: theme('colors.white');
+  --accent: theme('colors.green.200');
+  --strong_accent: theme('colors.green.300');
+  --hover: theme('colors.gray.50');
+  --faded: theme('colors.gray.500');
+  --navbar: theme('colors.gray.50');
+  --navbar_hover: theme('colors.gray.200');
+  --button: theme('colors.gray.100');
+  --button_fg: theme('colors.gray.800');
+  --button_hover: theme('colors.gray.200');
+  --selection: theme('colors.gray.100');
+  --positive: theme('colors.green.500');
+  --negative: theme('colors.red.500');
+}
+
+.dark-theme {
+}
+
 @screen sm {
   html {
     font-size: 18px;

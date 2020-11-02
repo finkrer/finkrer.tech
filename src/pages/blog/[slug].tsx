@@ -38,12 +38,12 @@ const PostPage: FC<Post> = ({ source, frontMatter }) => {
       description={frontMatter.description}
     >
       <div className="mt-8">
-        <h1 className="block mt-2 mb-2 text-4xl font-medium text-gray-900">
+        <h1 className="block mt-2 mb-2 text-4xl font-medium text-fg">
           {frontMatter.title}
         </h1>
         <Timestamp
           datetime={frontMatter.date}
-          className="p-0 text-sm tracking-wide text-gray-500"
+          className="p-0 text-sm tracking-wide text-faded"
         />
         <div className="mt-4">{hydrate(source)}</div>
       </div>
