@@ -10,10 +10,7 @@ COPY . /app
 
 RUN yarn build
 
-RUN addgroup -g 1000 -S next && \
-    adduser -u 1000 -S next -G next
-
-USER next
+USER node
 
 EXPOSE 3000
 
