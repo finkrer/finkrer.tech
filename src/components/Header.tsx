@@ -9,7 +9,7 @@ const NavItem: FC<NavItemProps> = ({ href, children }) => (
   <ul>
     <Link
       href={href}
-      className="inline-block px-4 py-1 mt-1 ml-8 text-lg lowercase rounded hover:bg-navbar_hover"
+      className="inline-block px-4 py-1 mt-1 ml-8 text-lg lowercase rounded hover:bg-green-100"
     >
       {children}
     </Link>
@@ -26,7 +26,7 @@ const Header = () => (
             className="inline-block text-3xl font-medium tracking-wide rounded"
           >
             finkrer
-            <Link className="text-accent" href="/admin">
+            <Link className="text-green-300" href="/admin">
               .
             </Link>
           </Link>

@@ -43,13 +43,13 @@ const Layout: FC<Props> = ({ title, description, children }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <FlexContainer className="min-h-screen">
-        <ContentContainer className="hidden text-fg navbar bg-navbar sm:block">
+        <ContentContainer className="hidden navbar sm:block">
           <Header />
         </ContentContainer>
-        <ContentContainer className="flex-grow pb-4 text-fg bg-bg">
+        <ContentContainer className="flex-grow pb-4">
           {children}
         </ContentContainer>
-        <ContentContainer className="fixed bottom-0 w-full text-fg navbar sm:hidden bg-navbar">
+        <ContentContainer className="fixed bottom-0 w-full navbar sm:hidden">
           <Header />
         </ContentContainer>
       </FlexContainer>
