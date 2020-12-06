@@ -1,5 +1,6 @@
 import Link from 'components/BetterLink'
 import { FC } from 'react'
+import ThemeToggle from 'components/ThemeToggle'
 
 type NavItemProps = {
   href: string
@@ -9,7 +10,7 @@ const NavItem: FC<NavItemProps> = ({ href, children }) => (
   <ul>
     <Link
       href={href}
-      className="inline-block px-4 py-1 mt-1 ml-8 text-lg lowercase rounded hover:bg-green-100"
+      className="inline-block px-4 py-1 mt-1 ml-8 text-lg lowercase transition-colors duration-200 ease-out rounded hover:bg-green-100 dark:hover:bg-gray-800"
     >
       {children}
     </Link>
@@ -33,6 +34,7 @@ const Header = () => (
         </ul>
         <NavItem href="/">Blog</NavItem>
         <NavItem href="/about">About</NavItem>
+        <ThemeToggle className="ml-auto text-2xl" />
       </menu>
     </nav>
   </header>

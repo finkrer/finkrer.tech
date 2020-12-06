@@ -41,18 +41,18 @@ const LoginPage: FC<Props> = ({ setAuth }) => {
   return (
     <Layout title="Login &bull; finkrer.wtf" description="The login page, duh">
       <FlexContainer>
-        <p className="text-sm leading-6 text-gray-600">
+        <p className="text-sm leading-6 text-gray-600 transition-colors duration-500 dark:text-gray-500">
           Here you can log in... at least in theory.
           <br />
           All you need is a secret token.
         </p>
         <form className="mt-8" onSubmit={handleSubmit(onSubmit)}>
           <div>
-            <label className="ml-1 text-fg" htmlFor="token">
+            <label className="ml-1" htmlFor="token">
               Token
             </label>
             <input
-              className="block w-full p-2 text-base border-b-2 rounded-sm bg-hover focus:outline-none focus:border-green-300 hover:border-green-300"
+              className="block w-full p-2 text-base transition-colors duration-300 ease-out bg-gray-100 border-b-2 rounded-sm dark:bg-gray-800 dark:border-gray-700 dark:focus:border-gray-500 dark:hover:border-gray-500 focus:outline-none focus:border-green-300 hover:border-green-300"
               name="token"
               id="token"
               type="search"
@@ -61,17 +61,17 @@ const LoginPage: FC<Props> = ({ setAuth }) => {
             />
           </div>
           <input
-            className="p-3 mt-4 text-xs font-medium tracking-wide rounded bg-gray-200 hover:bg-green-200"
+            className="p-3 mt-4 text-xs font-medium tracking-wide transition-colors duration-300 ease-out bg-gray-200 rounded hover:bg-green-200 dark:bg-gray-700 dark:hover:bg-gray-600"
             type="submit"
             value="I'm feeling lucky!"
           />
           {result !== undefined ? (
             result ? (
-              <span className="ml-4 text-sm tracking-wide uppercase text-green-500">
+              <span className="ml-4 text-sm tracking-wide text-green-500 uppercase">
                 Access granted
               </span>
             ) : (
-              <span className="ml-4 text-sm tracking-wide uppercase text-red-500">
+              <span className="ml-4 text-sm tracking-wide text-red-500 uppercase">
                 Access denied
               </span>
             )
@@ -105,7 +105,7 @@ const AdminPage: FC<Props> = ({ setAuth }) => {
         </p>
         <form className="" onSubmit={handleSubmit(onSubmit)}>
           <input
-            className="p-3 mt-4 text-xs font-medium tracking-wide rounded bg-gray-200 hover:bg-green-200"
+            className="p-3 mt-4 text-xs font-medium tracking-wide transition-colors duration-300 ease-out bg-gray-200 rounded hover:bg-green-200 dark:bg-gray-700 dark:hover:bg-gray-600"
             type="submit"
             value="&mdash; I don't wanna be cool, just let me out!"
             ref={register}
@@ -118,7 +118,7 @@ const AdminPage: FC<Props> = ({ setAuth }) => {
         <FlexContainer className="mt-4">
           <Link
             href="/log"
-            className="inline-block p-3 text-xs font-medium tracking-wide rounded bg-gray-200 w-min hover:bg-green-200"
+            className="inline-block p-3 text-xs font-medium tracking-wide transition-colors duration-300 ease-out bg-gray-200 rounded w-min hover:bg-green-200 dark:bg-gray-700 dark:hover:bg-gray-600"
           >
             Log
           </Link>

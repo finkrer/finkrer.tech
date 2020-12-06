@@ -43,7 +43,7 @@ const PostPage: FC<Post> = ({ source, frontMatter }) => {
         </h1>
         <Timestamp
           datetime={frontMatter.date}
-          className="p-0 text-sm tracking-wide text-gray-700"
+          className="p-0 text-sm tracking-wide text-gray-700 transition-colors duration-500 dark:text-gray-400"
         />
         <div className="mt-4">{hydrate(source)}</div>
       </div>

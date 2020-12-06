@@ -35,7 +35,7 @@ const PostPage = ({ post }: any) => {
         <h1 className="block mt-2 text-4xl font-medium">{post.name}</h1>
         <Timestamp
           datetime={post.first_published_at}
-          className="p-0 mt-1 text-sm tracking-wide text-gray-700"
+          className="p-0 mt-1 text-sm tracking-wide text-gray-700 transition-colors duration-500 dark:text-gray-400"
         />
         <Markdown body={post.content.body} className="" />
       </div>
