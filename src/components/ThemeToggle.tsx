@@ -6,7 +6,7 @@ type Props = {
 }
 
 const ThemeToggle: FC<Props> = ({ className }) => {
-  const [state, setState] = useState<Theme>('light')
+  const [state, setState] = useState<Theme | 'unknown'>('unknown')
 
   const updateTheme = (theme: Theme) => {
     setTheme(theme)
@@ -30,6 +30,10 @@ const ThemeToggle: FC<Props> = ({ className }) => {
     return () => mql.removeEventListener('change', handler)
   })
 
+  if (state === 'unknown') {
+    return null
+  }
+
   if (state === 'light') {
     return (
       <button
@@ -41,7 +45,9 @@ const ThemeToggle: FC<Props> = ({ className }) => {
         🌞
       </button>
     )
-  } else {
+  }
+
+  if (state === 'dark') {
     return (
       <button
         className={className}
@@ -53,6 +59,8 @@ const ThemeToggle: FC<Props> = ({ className }) => {
       </button>
     )
   }
+
+  return null
 }
 
 export default ThemeToggle
