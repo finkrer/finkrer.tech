@@ -37,7 +37,7 @@ const Header = () => (
         </ul>
         <NavItem href="/">Blog</NavItem>
         <NavItem href="/about">About</NavItem>
-        <ThemeToggle className="ml-auto text-2xl rounded focus:outline-none focus:ring ring-opacity-50" />
+        <ThemeToggle className="px-1 py-0.5 ml-auto text-2xl rounded-full focus:outline-none focus:ring ring-opacity-50" />
       </menu>
     </nav>
   </header>

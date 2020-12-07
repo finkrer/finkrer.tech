@@ -69,11 +69,11 @@ const LoginPage: FC<Props> = ({ setAuth }) => {
           />
           {result !== undefined ? (
             result ? (
-              <span className="ml-4 text-sm tracking-wide text-green-500 uppercase">
+              <span className="ml-4 text-sm font-semibold tracking-wide text-green-500 uppercase">
                 Access granted
               </span>
             ) : (
-              <span className="ml-4 text-sm tracking-wide text-red-500 uppercase">
+              <span className="ml-4 text-sm font-semibold tracking-wide text-red-500 uppercase">
                 Access denied
               </span>
             )
