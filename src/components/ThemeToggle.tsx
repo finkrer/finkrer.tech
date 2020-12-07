@@ -37,7 +37,7 @@ const ThemeToggle: FC<Props> = ({ className }) => {
   if (state === 'light') {
     return (
       <button
-        className={className}
+        className={className + ' ring-yellow-300'}
         onClick={() => {
           updateTheme('dark')
         }}
@@ -50,7 +50,7 @@ const ThemeToggle: FC<Props> = ({ className }) => {
   if (state === 'dark') {
     return (
       <button
-        className={className}
+        className={className + ' ring-gray-600'}
         onClick={() => {
           updateTheme('light')
         }}

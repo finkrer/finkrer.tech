@@ -65,6 +65,10 @@ img {
   background-size: 1px 8px;
 }
 
+.btn {
+  @apply p-3 text-xs font-medium tracking-wide transition-colors duration-300 ease-out bg-gray-200 rounded w-min hover:bg-green-200 dark:bg-gray-700 dark:hover:bg-gray-600 focus:outline-none focus:ring ring-opacity-50 ring-green-200 dark:ring-gray-600;
+}
+
 * {
   scrollbar-color: white hsl(10, 0%, 80%);
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);

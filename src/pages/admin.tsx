@@ -22,6 +22,8 @@ type Props = {
   setAuth: (value: boolean) => void
 }
 
+const className = ''
+
 const LoginPage: FC<Props> = ({ setAuth }) => {
   const { register, handleSubmit } = useForm<FormData>()
   const [result, setResult] = useState<boolean | undefined>(undefined)
@@ -61,7 +63,7 @@ const LoginPage: FC<Props> = ({ setAuth }) => {
             />
           </div>
           <input
-            className="p-3 mt-4 text-xs font-medium tracking-wide transition-colors duration-300 ease-out bg-gray-200 rounded hover:bg-green-200 dark:bg-gray-700 dark:hover:bg-gray-600"
+            className="mt-4 btn"
             type="submit"
             value="I'm feeling lucky!"
           />
@@ -105,7 +107,7 @@ const AdminPage: FC<Props> = ({ setAuth }) => {
         </p>
         <form className="" onSubmit={handleSubmit(onSubmit)}>
           <input
-            className="p-3 mt-4 text-xs font-medium tracking-wide transition-colors duration-300 ease-out bg-gray-200 rounded hover:bg-green-200 dark:bg-gray-700 dark:hover:bg-gray-600"
+            className="btn"
             type="submit"
             value="&mdash; I don't wanna be cool, just let me out!"
             ref={register}
@@ -116,10 +118,7 @@ const AdminPage: FC<Props> = ({ setAuth }) => {
           sections of the site.
         </p>
         <FlexContainer className="mt-4">
-          <Link
-            href="/log"
-            className="inline-block p-3 text-xs font-medium tracking-wide transition-colors duration-300 ease-out bg-gray-200 rounded w-min hover:bg-green-200 dark:bg-gray-700 dark:hover:bg-gray-600"
-          >
+          <Link href="/log" className="inline-block btn">
             Log
           </Link>
         </FlexContainer>
