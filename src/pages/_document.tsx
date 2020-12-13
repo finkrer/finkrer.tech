@@ -24,7 +24,7 @@ class MyDocument extends Document {
             }}
           />
         </Head>
-        <body className="transition-colors duration-500 dark:bg-gray-900 dark:text-gray-300">
+        <body className="text-base transition-colors duration-500 dark:bg-gray-900 dark:text-gray-300">
           <Main />
           <NextScript />
         </body>

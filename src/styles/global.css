@@ -23,7 +23,6 @@ html {
 h1,
 h2,
 h3 {
-  line-height: 1.2;
   @apply font-semibold;
 }
 
@@ -46,10 +45,6 @@ h3 {
 img {
   width: 100%;
   height: auto;
-}
-
-.optimal-text-width {
-  max-width: 60ch;
 }
 
 .dashed {
@@ -89,5 +84,5 @@ img {
 }
 
 ::selection {
-  @apply bg-green-200 dark:bg-gray-400;
+  @apply transition-colors duration-200 bg-green-200 dark:text-gray-900;
 }

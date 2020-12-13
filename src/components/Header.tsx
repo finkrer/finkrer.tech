@@ -20,11 +20,11 @@ const NavItem: FC<NavItemProps> = ({ href, children }) => (
 const Header = () => (
   <header>
     <nav>
-      <menu className="flex items-center py-3 pl-0 m-0 select-none">
+      <menu className="flex content-center py-3 pl-0 m-0 select-none">
         <ul>
           <Link
             href="/"
-            className="inline-block text-3xl font-medium tracking-wide rounded focus:outline-none focus:ring ring-green-100 dark:ring-gray-800"
+            className="inline-block text-4xl font-medium tracking-wide rounded focus:outline-none focus:ring ring-green-100 dark:ring-gray-800"
           >
             finkrer
             <Link
@@ -37,7 +37,7 @@ const Header = () => (
         </ul>
         <NavItem href="/">Blog</NavItem>
         <NavItem href="/about">About</NavItem>
-        <ThemeToggle className="px-1 py-0.5 ml-auto text-2xl rounded-full focus:outline-none focus:ring ring-opacity-50" />
+        <ThemeToggle className="px-3 ml-auto text-2xl rounded-full focus:outline-none focus:ring ring-opacity-50" />
       </menu>
     </nav>
   </header>

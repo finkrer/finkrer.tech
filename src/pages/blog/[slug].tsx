@@ -37,13 +37,13 @@ const PostPage: FC<Post> = ({ source, frontMatter }) => {
       title={`finkrer.wtf • ${frontMatter.title}`}
       description={frontMatter.description}
     >
-      <div className="mt-8">
-        <h1 className="block mt-2 mb-2 text-4xl font-medium">
+      <div className="flex flex-col items-center mt-8">
+        <h1 className="content-center block mt-2 mb-2 text-5xl text-center">
           {frontMatter.title}
         </h1>
         <Timestamp
           datetime={frontMatter.date}
-          className="p-0 text-sm tracking-wide text-gray-700 transition-colors duration-500 dark:text-gray-400"
+          className="p-0 text-sm text-gray-700 transition-colors duration-500 dark:text-gray-400"
         />
         <div className="mt-4">{hydrate(source)}</div>
       </div>

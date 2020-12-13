@@ -16,7 +16,7 @@ const PostPreview: FC<Props> = ({ post }) => (
         </h1>
         <Timestamp
           datetime={post.frontMatter.date}
-          className="p-0 mt-1 text-sm tracking-wide text-gray-700 transition-colors duration-500 dark:text-gray-400"
+          className="p-0 mt-1 text-sm text-gray-700 transition-colors duration-500 dark:text-gray-400"
         />
         <p className="mt-1 text-base">{post.frontMatter.description}</p>
       </div>

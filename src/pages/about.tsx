@@ -3,7 +3,7 @@ import Layout from 'layout/Layout'
 const About = () => (
   <Layout title="finkrer.wtf" description="My cool personal website">
     <article>
-      <h1 className="text-3xl">Hello there.</h1>
+      <h1 className="text-4xl">Hello there.</h1>
       <p>I'm finkrer, although my real name is Evgeny.</p>
       <p>
         Welcome to my site. Here I have a blog where I express my thoughts on
