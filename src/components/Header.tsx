@@ -10,7 +10,7 @@ const NavItem: FC<NavItemProps> = ({ href, children }) => (
   <ul>
     <Link
       href={href}
-      className="inline-block px-4 py-1 mt-1 ml-8 text-lg lowercase transition-colors duration-200 ease-out rounded hover:bg-green-100 dark:hover:bg-gray-800 focus:outline-none focus:ring ring-inset ring-green-100 dark:ring-gray-800"
+      className="inline-block px-4 py-1 mt-1 ml-8 text-lg lowercase transition-colors duration-500 ease-out rounded hover:bg-green-100 dark:hover:bg-gray-700 focus:outline-none focus:ring ring-inset ring-green-100 dark:ring-gray-700"
     >
       {children}
     </Link>
@@ -24,11 +24,11 @@ const Header = () => (
         <ul>
           <Link
             href="/"
-            className="inline-block text-4xl font-medium tracking-wide rounded focus:outline-none focus:ring ring-green-100 dark:ring-gray-800"
+            className="inline-block text-4xl font-medium tracking-wide rounded focus:outline-none focus:ring ring-green-100 dark:ring-gray-700"
           >
             finkrer
             <Link
-              className="text-green-300 focus:outline-none focus:ring ring-green-100 dark:ring-gray-800"
+              className="text-green-300 focus:outline-none focus:ring ring-green-100 dark:ring-gray-700"
               href="/admin"
             >
               .
