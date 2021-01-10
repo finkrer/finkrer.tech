@@ -20,7 +20,7 @@ const NavItem: FC<NavItemProps> = ({ href, children }) => (
 const Header = () => (
   <header>
     <nav>
-      <menu className="flex content-center py-3 pl-0 m-0 select-none">
+      <menu className="flex content-center pt-2 pb-1 pl-0 m-0 select-none">
         <ul>
           <Link
             href="/"
@@ -37,7 +37,7 @@ const Header = () => (
         </ul>
         <NavItem href="/">Blog</NavItem>
         <NavItem href="/about">About</NavItem>
-        <ThemeToggle className="px-3 ml-auto text-2xl rounded-full focus:outline-none focus:ring ring-opacity-50" />
+        <ThemeToggle className="p-0 my-1 ml-auto text-2xl rounded-full focus:outline-none focus:ring ring-opacity-50" />
       </menu>
     </nav>
   </header>
