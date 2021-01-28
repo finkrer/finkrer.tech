@@ -3,6 +3,11 @@ import { StoryblokCDA as Storyblok } from 'lib/storyblok'
 import { GetServerSideProps } from 'next'
 import { isAuthorized } from 'lib/auth'
 import FlexContainer from 'layout/FlexContainer'
+import NewEntry from 'components/NewEntry'
+import { FC, useState } from 'react'
+import Timestamp from 'components/Timestamp'
+import snarkdown from 'snarkdown'
+import { LogEntry } from 'lib/data'
 
 export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   const authorized = isAuthorized(req)
@@ -10,15 +15,19 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
 
   if (!authorized) return { props: {} }
 
-  const posts = res.data.stories
+  const entries = res.data.stories
 
   return {
-    props: { posts },
+    props: { entries },
   }
 }
 
-const Log = ({ posts }: any) => {
-  if (!posts)
+type Props = {
+  entries: LogEntry[]
+}
+
+const Log: FC<Props> = ({ entries }) => {
+  if (!entries)
     return (
       <Layout title="ACCESS DENIED &bull; finkrer.wtf" description="Get out!">
         <FlexContainer className="items-center">
@@ -33,11 +42,26 @@ const Log = ({ posts }: any) => {
       </Layout>
     )
 
+  const [entryList, setEntries] = useState(entries)
+
   return (
     <Layout title="Log &bull; finkrer.wtf" description="My personal blog">
-      {posts.map((p: any) => (
-        <div>{p.content.body}</div>
-      ))}
+      <NewEntry onCreate={(entry) => setEntries([entry, ...entryList])} />
+      <div className="mt-8">
+        {entryList.map((e) => (
+          <article className="flex items-baseline mt-4">
+            <Timestamp
+              absolute
+              datetime={e.created_at}
+              className="text-sm text-gray-400 whitespace-nowrap dark:text-gray-500"
+            />
+            <div
+              className="max-w-md ml-8"
+              dangerouslySetInnerHTML={{ __html: snarkdown(e.content.body) }}
+            ></div>
+          </article>
+        ))}
+      </div>
     </Layout>
   )
 }

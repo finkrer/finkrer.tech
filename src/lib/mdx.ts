@@ -8,7 +8,7 @@ export const getPostList = (): PostInfo[] => {
   const postDirectory = path.join(process.cwd(), 'posts')
   const filenames = fs.readdirSync(postDirectory)
 
-  const posts = filenames.map(filename => {
+  const posts = filenames.filter(n => n.endsWith('.mdx')).map(filename => {
     const filePath = path.join(postDirectory, filename)
     const fileContents = fs.readFileSync(filePath, 'utf-8')
 

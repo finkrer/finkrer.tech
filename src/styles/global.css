@@ -62,7 +62,11 @@ img {
 }
 
 .btn {
-  @apply p-3 text-xs font-medium tracking-wide transition-colors duration-300 ease-out bg-gray-200 rounded w-min hover:bg-green-200 dark:bg-gray-700 dark:hover:bg-gray-600 focus:outline-none focus:ring ring-opacity-50 ring-green-200 dark:ring-gray-600;
+  @apply p-3 text-xs font-medium tracking-wide transition-colors duration-300 ease-out bg-gray-200 rounded w-min hover:bg-purple-200 dark:bg-gray-700 dark:hover:bg-gray-600 focus:outline-none focus:ring ring-opacity-50 ring-purple-200 dark:ring-gray-600;
+}
+
+.blur {
+  backdrop-filter: blur(30px);
 }
 
 * {
@@ -84,5 +88,5 @@ img {
 }
 
 ::selection {
-  @apply transition-colors duration-200 bg-green-200 dark:text-gray-900;
+  @apply transition-colors duration-200 bg-purple-200 dark:text-gray-900;
 }

@@ -22,11 +22,9 @@ type Props = {
   setAuth: (value: boolean) => void
 }
 
-const className = ''
-
 const LoginPage: FC<Props> = ({ setAuth }) => {
   const { register, handleSubmit } = useForm<FormData>()
-  const [result, setResult] = useState<boolean | undefined>(undefined)
+  const [result, setResult] = useState<boolean | null>(null)
 
   const onSubmit = (data: FormData) => {
     fetch('/api/session', {
@@ -54,7 +52,7 @@ const LoginPage: FC<Props> = ({ setAuth }) => {
               Token
             </label>
             <input
-              className="block w-full p-2 text-base transition-colors duration-300 ease-out bg-gray-100 border-b-2 rounded-sm dark:bg-gray-800 dark:border-gray-700 dark:focus:border-gray-500 dark:hover:border-gray-500 focus:outline-none focus:border-green-300 hover:border-green-300"
+              className="block w-full p-2 text-base transition-colors duration-300 ease-out bg-gray-100 border-b-2 rounded-sm dark:bg-gray-800 dark:border-gray-700 dark:focus:border-gray-500 dark:hover:border-gray-500 focus:outline-none focus:border-purple-300 hover:border-purple-300"
               name="token"
               id="token"
               type="search"
@@ -67,7 +65,7 @@ const LoginPage: FC<Props> = ({ setAuth }) => {
             type="submit"
             value="I'm feeling lucky!"
           />
-          {result !== undefined ? (
+          {result !== null ? (
             result ? (
               <span className="ml-4 text-sm font-semibold tracking-wide text-green-500 uppercase">
                 Access granted

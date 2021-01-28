@@ -3,7 +3,7 @@ import { FC } from 'react'
 
 type Props = {
   href: string
-  className: string
+  className?: string
 }
 
 const BetterLink: FC<Props> = ({ href, className, children }) => (

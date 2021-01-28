@@ -2,6 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next'
 import { StoryblokCMA, flushStoryblokCache } from 'lib/storyblok'
 import { STORYBLOK_SPACE_ID, STORYBLOK_LOG_FOLDER_ID } from 'lib/constants'
 import { tokenIsCorrect } from 'lib/auth'
+import { v4 as uuid } from 'uuid'
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method !== 'POST') {
@@ -17,20 +18,23 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     return
   }
 
+  const id = uuid()
+  const data = JSON.parse(req.body)
+
   await StoryblokCMA.post(`spaces/${STORYBLOK_SPACE_ID}/stories/`, {
     story: {
-      name: req.body.name,
-      slug: req.body.slug,
+      name: id,
+      slug: id,
       parent_id: STORYBLOK_LOG_FOLDER_ID,
       content: {
         component: 'log-entry',
-        body: req.body.content,
+        body: data.body,
       },
     },
     publish: 1,
   })
-    .then(_ => res.status(201).send('Log entry created'))
-    .catch(_ => res.status(422).send('Incorrect log entry format'))
+    .then((r) => res.status(201).send(r.data))
+    .catch((_) => res.status(422).send('Incorrect log entry format'))
 
   flushStoryblokCache()
 }
