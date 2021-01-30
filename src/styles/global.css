@@ -55,8 +55,12 @@ img {
 }
 
 .link-decoration {
-  background-image: linear-gradient(to right, #fce96a 75%, transparent 75%);
-  background-position: 0 1em;
+  background-image: linear-gradient(
+    to right,
+    rgb(215, 230, 255) 75%,
+    transparent 75%
+  );
+  background-position: 0 0.85em;
   background-repeat: repeat-x;
   background-size: 1px 8px;
 }
