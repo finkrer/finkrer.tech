@@ -144,6 +144,10 @@ export const CV = () => (
           <a href="mailto:finkrer@gmail.com" className="link-decoration">
             finkrer@gmail.com
           </a>
+          <SectionSubheader>Telegram</SectionSubheader>
+          <a href="https://t.me/finkrer" className="link-decoration">
+            @finkrer
+          </a>
           <SectionSubheader>Телефон</SectionSubheader>
           <a href="tel:+79826374036" className="link-decoration">
             +7 (982) 637-40-36
