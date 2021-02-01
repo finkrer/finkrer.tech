@@ -49,14 +49,14 @@ const Log: FC<Props> = ({ entries }) => {
       <NewEntry onCreate={(entry) => setEntries([entry, ...entryList])} />
       <div className="mt-8">
         {entryList.map((e) => (
-          <article className="flex items-baseline mt-4">
+          <article className="items-baseline mt-4 lg:flex">
             <Timestamp
               absolute
               datetime={e.created_at}
-              className="text-sm text-gray-400 whitespace-nowrap dark:text-gray-500"
+              className="text-sm text-gray-400 lg:-ml-36 whitespace-nowrap dark:text-gray-500"
             />
             <div
-              className="max-w-md ml-8"
+              className="lg:ml-8"
               dangerouslySetInnerHTML={{ __html: snarkdown(e.content.body) }}
             ></div>
           </article>

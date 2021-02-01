@@ -10,7 +10,7 @@ const NavItem: FC<NavItemProps> = ({ href, children }) => (
   <ul>
     <Link
       href={href}
-      className="inline-block px-4 py-1 mt-1 ml-8 text-lg lowercase transition-colors ease-out rounded hover:bg-purple-100 hover:text-purple-900 dark:hover:bg-gray-700 focus:outline-none focus:ring ring-inset ring-purple-100 dark:ring-gray-700"
+      className="inline-block px-4 py-1 mt-1 ml-8 text-lg lowercase transition-colors ease-out rounded hover:bg-purple-100 hover:text-purple-900 dark:hover:text-gray-300 dark:hover:bg-gray-700 focus:outline-none focus:ring ring-inset ring-purple-100 dark:ring-gray-700"
     >
       {children}
     </Link>

@@ -16,6 +16,10 @@ module.exports = {
       },
     },
   },
-  variants: {},
+  variants: {
+    extend: {
+      ringOpacity: ['dark'],
+    },
+  },
   plugins: [],
 }

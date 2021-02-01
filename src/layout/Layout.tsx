@@ -43,13 +43,13 @@ const Layout: FC<Props> = ({ title, description, children }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <FlexContainer className="min-h-screen">
-        <ContentContainer className="hidden transition duration-500 border-b border-gray-100 dark:border-gray-800 navbar sm:block">
+        <ContentContainer className="hidden transition duration-500 border-b border-gray-200 dark:border-gray-800 navbar sm:block">
           <Header />
         </ContentContainer>
         <ContentContainer className="flex-grow pb-4">
           {children}
         </ContentContainer>
-        <ContentContainer className="fixed bottom-0 w-full transition duration-500 border-t blur dark:border-gray-800 navbar sm:hidden">
+        <ContentContainer className="fixed bottom-0 w-full transition duration-500 border-t border-gray-200 dark:border-gray-800 blur navbar sm:hidden">
           <Header />
         </ContentContainer>
       </FlexContainer>
