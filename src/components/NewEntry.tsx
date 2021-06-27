@@ -24,7 +24,7 @@ const NewEntry: FC<Props> = ({ onCreate }) => {
     }).then((res) => {
       setResult(res.ok)
       if (res.ok) {
-        ;(document.getElementById('new-entry') as HTMLFormElement)?.reset()
+        (document.getElementById('new-entry') as HTMLFormElement)?.reset()
         res.json().then((j) => {
           onCreate?.(j.story as LogEntry)
         })
@@ -42,21 +42,19 @@ const NewEntry: FC<Props> = ({ onCreate }) => {
         className="w-full px-4 pt-3 pb-2 overflow-hidden transition-colors duration-300 ease-out bg-gray-100 border-b-2 rounded-sm resize-none dark:bg-gray-800 dark:border-gray-700 dark:focus:border-gray-500 dark:hover:border-gray-500 focus:outline-none focus:border-purple-300 hover:border-purple-300"
         minRows={2}
         placeholder="Share your thoughts..."
-        name="body"
-        ref={register}
+        {...register('body')}
       />
       <input
         className="self-end px-8 mt-4 btn ring-opacity-50"
         type="submit"
         value="Create"
       ></input>
-      {result ? (
-        <span />
-      ) : (
+      {!result && (
         <span className="ml-4 text-sm font-semibold tracking-wide text-red-500">
           Could not add entry
         </span>
       )}
+      
     </form>
   )
 }

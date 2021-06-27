@@ -1,7 +1,8 @@
 import { PostInfo } from 'lib/data'
 import { getPostList } from 'lib/mdx'
 import { GetStaticProps } from 'next'
-import Layout from 'layout/Layout'
+import Head from 'next/head'
+import Placeholder from 'components/Placeholder'
 import PostPreview from 'components/PostPreview'
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -12,13 +13,22 @@ export const getStaticProps: GetStaticProps = async () => {
 
 const Index = ({ posts }: { posts: PostInfo[] }) => {
   return (
-    <Layout title="finkrer.wtf" description="My personal blog">
+    <>
+      <Head>
+        <title>finkrer.tech</title>
+        <meta name="description" content="My personal blog" />
+      </Head>
       <section className="mt-4">
+        {posts.length === 0 && (
+          <Placeholder emoji="😳">
+            Looks like I don't have any posts yet...
+          </Placeholder>
+        )}
         {posts.map((post) => (
           <PostPreview key={post.slug} post={post} />
         ))}
       </section>
-    </Layout>
+    </>
   )
 }
 

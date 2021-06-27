@@ -1,16 +1,10 @@
-import Head from 'next/head'
 import Router from 'next/router'
 import Header from 'components/Header'
 import FlexContainer from 'layout/FlexContainer'
 import ContentContainer from 'layout/ContentContainer'
 import { FC, useEffect, useState } from 'react'
 
-type Props = {
-  title: string
-  description: string
-}
-
-const Layout: FC<Props> = ({ title, description, children }) => {
+const Layout: FC = ({ children }) => {
   const [prevPos, setPrevPos] = useState(0)
   const handleScroll = () => {
     const currentPos = window.pageYOffset
@@ -37,11 +31,6 @@ const Layout: FC<Props> = ({ title, description, children }) => {
 
   return (
     <>
-      <Head>
-        <title>{title}</title>
-        <meta name="description" content={description} />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Head>
       <FlexContainer className="min-h-screen">
         <ContentContainer className="hidden transition duration-500 border-b border-gray-200 dark:border-gray-800 navbar sm:block">
           <Header />
@@ -49,7 +38,7 @@ const Layout: FC<Props> = ({ title, description, children }) => {
         <ContentContainer className="flex-grow pb-4">
           {children}
         </ContentContainer>
-        <ContentContainer className="fixed bottom-0 w-full transition duration-500 border-t border-gray-200 dark:border-gray-800 blur navbar sm:hidden">
+        <ContentContainer className="fixed bottom-0 w-full transition duration-500 border-t border-gray-200 dark:border-gray-800 navbar sm:hidden">
           <Header />
         </ContentContainer>
       </FlexContainer>

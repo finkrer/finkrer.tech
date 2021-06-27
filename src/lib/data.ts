@@ -1,3 +1,4 @@
+import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { StoryData, StoryblokComponent } from 'storyblok-js-client'
 
 export interface PostInfo {
@@ -6,7 +7,7 @@ export interface PostInfo {
 }
 
 export interface Post {
-  readonly source: object
+  readonly source: MDXRemoteSerializeResult<Record<string, unknown>>
   readonly frontMatter: PostFrontMatter
 }
 

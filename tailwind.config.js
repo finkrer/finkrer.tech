@@ -1,9 +1,16 @@
 const colors = require('tailwindcss/colors')
 
 module.exports = {
+  mode: 'jit',
   purge: ['**/*.tsx'],
   darkMode: 'class',
   theme: {
+    fontFamily: {
+      'sans': ['Inter', 'sans-serif'],
+      'serif': ['serif'],
+      'mono': ['Iosevka Web', 'monospace'],
+      'display': ['Iosevka Web', 'sans-serif'],
+    },
     extend: {
       colors: {
         gray: colors.gray,

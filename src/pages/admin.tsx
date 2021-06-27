@@ -2,6 +2,7 @@ import FlexContainer from 'layout/FlexContainer'
 import Layout from 'layout/Layout'
 import { isAuthorized } from 'lib/auth'
 import { GetServerSideProps } from 'next'
+import Head from 'next/head'
 import Link from 'components/BetterLink'
 import { FC, useState } from 'react'
 import { useForm } from 'react-hook-form'
@@ -39,7 +40,11 @@ const LoginPage: FC<Props> = ({ setAuth }) => {
   }
 
   return (
-    <Layout title="Login &bull; finkrer.wtf" description="The login page, duh">
+    <>
+      <Head>
+        <title>Login &bull; finkrer.tech</title>
+        <meta name="description" content="The login page, duh" />
+      </Head>
       <FlexContainer>
         <p className="text-sm leading-6 text-gray-600 transition-colors duration-500 dark:text-gray-500">
           Here you can log in... at least in theory.
@@ -53,11 +58,10 @@ const LoginPage: FC<Props> = ({ setAuth }) => {
             </label>
             <input
               className="block w-full p-2 text-base transition-colors duration-300 ease-out bg-gray-100 border-b-2 rounded-sm dark:bg-gray-800 dark:border-gray-700 dark:focus:border-gray-500 dark:hover:border-gray-500 focus:outline-none focus:border-purple-300 hover:border-purple-300"
-              name="token"
               id="token"
               type="search"
               autoComplete="new-password"
-              ref={register}
+              {...register('token')}
             />
           </div>
           <input
@@ -80,7 +84,7 @@ const LoginPage: FC<Props> = ({ setAuth }) => {
           )}
         </form>
       </FlexContainer>
-    </Layout>
+    </>
   )
 }
 
@@ -98,7 +102,11 @@ const AdminPage: FC<Props> = ({ setAuth }) => {
   }
 
   return (
-    <Layout title="Admin &bull; finkrer.wtf" description="Admin page">
+    <>
+      <Head>
+        <title>Admin &bull; finkrer.tech</title>
+        <meta name="description" content="Admin page" />
+      </Head>
       <FlexContainer>
         <p className="mt-8">
           Duuude, you know the token, right? You are so cool, damn. Amazing.
@@ -108,7 +116,6 @@ const AdminPage: FC<Props> = ({ setAuth }) => {
             className="btn"
             type="submit"
             value="&mdash; I don't wanna be cool, just let me out!"
-            ref={register}
           />
         </form>
         <p>
@@ -122,7 +129,7 @@ const AdminPage: FC<Props> = ({ setAuth }) => {
         </FlexContainer>
         <p>I know that's not much, but there will be more!</p>
       </FlexContainer>
-    </Layout>
+    </>
   )
 }
 

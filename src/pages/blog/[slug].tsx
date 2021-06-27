@@ -2,12 +2,13 @@ import Timestamp from 'components/Timestamp'
 import Layout from 'layout/Layout'
 import DefaultErrorPage from 'next/error'
 import Router from 'next/router'
+import Head from 'next/head'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { getPost, getPostList } from 'lib/mdx'
-import hydrate from 'next-mdx-remote/hydrate'
 import { Post, PostInfo } from 'lib/data'
 import { FC, useEffect } from 'react'
 import BetterLink from 'components/BetterLink'
+import { MDXRemote } from 'next-mdx-remote'
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   if (typeof params?.slug !== 'string') return { props: {} }
@@ -59,19 +60,22 @@ const PostPage: FC<Props> = ({ source, frontMatter, prev, next }) => {
   })
 
   return (
-    <Layout
-      title={`finkrer.wtf • ${frontMatter.title}`}
-      description={frontMatter.description}
-    >
+    <>
+      <Head>
+        <title>{`finkrer.wtf • ${frontMatter.title}`}</title>
+        <meta name="description" content={frontMatter.description} />
+      </Head>
       <div className="flex flex-col mt-8">
-        <h1 className="block max-w-lg mt-2 mb-2 text-4xl">
+        <h1 className="block max-w-lg mt-2 mb-2 font-mono text-4xl font-bold">
           {frontMatter.title}
         </h1>
         <Timestamp
           datetime={frontMatter.date}
           className="p-0 text-sm text-gray-700 transition-colors duration-500 dark:text-gray-400"
         />
-        <div className="mt-4">{hydrate(source)}</div>
+        <div className="mt-4">
+          <MDXRemote {...source} />
+        </div>
         <div className="flex justify-between mt-12">
           <BetterLink
             href={prev.slug}
@@ -91,7 +95,7 @@ const PostPage: FC<Props> = ({ source, frontMatter, prev, next }) => {
           </BetterLink>
         </div>
       </div>
-    </Layout>
+    </>
   )
 }
 

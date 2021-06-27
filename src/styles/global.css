@@ -16,6 +16,10 @@ html {
   text-rendering: optimizeLegibility;
 }
 
+.font-mono {
+  font-stretch: expanded;
+}
+
 @screen sm {
   html {
     font-size: 18px;
@@ -25,7 +29,8 @@ html {
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
   @apply font-semibold;
 }
 
@@ -43,6 +48,10 @@ h2 {
 
 h3 {
   @apply mt-5 text-xl;
+}
+
+h4 {
+  @apply mt-4 text-lg;
 }
 
 img {
@@ -70,10 +79,6 @@ img {
 
 .btn {
   @apply p-3 text-xs font-medium tracking-wide transition-colors duration-300 ease-out bg-gray-200 rounded w-min hover:bg-purple-200 dark:bg-gray-700 dark:hover:bg-gray-600 focus:outline-none focus:ring ring-opacity-50 dark:ring-opacity-50 ring-purple-200 dark:ring-gray-600;
-}
-
-.blur {
-  backdrop-filter: blur(30px);
 }
 
 * {

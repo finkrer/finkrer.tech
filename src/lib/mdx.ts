@@ -1,7 +1,7 @@
 import path from 'path'
 import fs from 'fs'
 import matter from 'gray-matter'
-import renderToString from 'next-mdx-remote/render-to-string'
+import { serialize } from 'next-mdx-remote/serialize'
 import { Post, PostFrontMatter, PostInfo } from 'lib/data'
 
 export const getPostList = (): PostInfo[] => {
@@ -30,7 +30,7 @@ export const getPost = async (slug: string): Promise<Post> => {
 
   const {content, data} = matter(fileContents)
 
-  const mdxSource = await renderToString(content)
+  const mdxSource = await serialize(content)
   
   return {source: mdxSource, frontMatter: data as PostFrontMatter}
 }

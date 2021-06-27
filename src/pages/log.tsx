@@ -1,6 +1,7 @@
-import Layout from 'layout/Layout'
 import { StoryblokCDA as Storyblok } from 'lib/storyblok'
 import { GetServerSideProps } from 'next'
+import Head from 'next/head'
+import Placeholder from 'components/Placeholder'
 import { isAuthorized } from 'lib/auth'
 import FlexContainer from 'layout/FlexContainer'
 import NewEntry from 'components/NewEntry'
@@ -29,23 +30,25 @@ type Props = {
 const Log: FC<Props> = ({ entries }) => {
   if (!entries)
     return (
-      <Layout title="ACCESS DENIED &bull; finkrer.wtf" description="Get out!">
-        <FlexContainer className="items-center">
-          <p className="mt-16 text-4xl font-bold tracking-wide text-red-600 uppercase transition-colors duration-200 dark:text-red-400">
-            By the order of the Jarl, stop right there!
-          </p>
-          <p className="text-lg">
-            You do not have permission to access this page. This incident will
-            be reported.
-          </p>
-        </FlexContainer>
-      </Layout>
+      <>
+        <Head>
+          <title>ACCESS DENIED &bull; finkrer.tech</title>
+          <meta name="description" content="Get out!" />
+        </Head>
+        <Placeholder emoji="😤">
+          You can't be here without authorization.
+        </Placeholder>
+      </>
     )
 
   const [entryList, setEntries] = useState(entries)
 
   return (
-    <Layout title="Log &bull; finkrer.wtf" description="My personal blog">
+    <>
+      <Head>
+        <title>Log &bull; finkrer.tech</title>
+        <meta name="description" content="My personal blog" />
+      </Head>
       <NewEntry onCreate={(entry) => setEntries([entry, ...entryList])} />
       <div className="mt-8">
         {entryList.map((e) => (
@@ -62,7 +65,7 @@ const Log: FC<Props> = ({ entries }) => {
           </article>
         ))}
       </div>
-    </Layout>
+    </>
   )
 }
 
