@@ -3,16 +3,16 @@ import { GetServerSideProps } from 'next'
 import Head from 'next/head'
 import Placeholder from 'components/Placeholder'
 import { isAuthorized } from 'lib/auth'
-import FlexContainer from 'layout/FlexContainer'
 import NewEntry from 'components/NewEntry'
 import { FC, useState } from 'react'
-import Timestamp from 'components/Timestamp'
-import snarkdown from 'snarkdown'
 import { LogEntry } from 'lib/data'
+import Entry from 'components/Entry'
 
 export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   const authorized = isAuthorized(req)
-  const res = await Storyblok.getStories()
+  const res = await Storyblok.getStories({
+    per_page: 50,
+  })
 
   if (!authorized) return { props: {} }
 
@@ -52,17 +52,7 @@ const Log: FC<Props> = ({ entries }) => {
       <NewEntry onCreate={(entry) => setEntries([entry, ...entryList])} />
       <div className="mt-8">
         {entryList.map((e) => (
-          <article className="items-baseline mt-4 lg:flex">
-            <Timestamp
-              absolute
-              datetime={e.created_at}
-              className="text-sm text-gray-400 lg:-ml-36 whitespace-nowrap dark:text-gray-500"
-            />
-            <div
-              className="lg:ml-8"
-              dangerouslySetInnerHTML={{ __html: snarkdown(e.content.body) }}
-            ></div>
-          </article>
+          <Entry from={e} key={e.id} />
         ))}
       </div>
     </>

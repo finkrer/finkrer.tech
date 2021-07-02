@@ -4,17 +4,19 @@ import { FC } from 'react'
 
 type Props = {
   datetime: string | Date
-  className: string
+  className?: string
   absolute?: boolean
+  format?: string
 }
 
-const Timestamp: FC<Props> = ({ datetime, className, absolute }) => {
+const Timestamp: FC<Props> = ({ datetime, className, absolute, format }) => {
   dayjs.extend(relativeTime)
   const m = dayjs(datetime)
+  format ??= 'DD.MM.YYYY HH:mm'
 
   return (
-    <time className={className} title={m.format('DD.MM.YYYY HH:mm')}>
-      {absolute ? m.format('DD.MM.YYYY HH:mm') : m.fromNow()}
+    <time className={className} title={m.format(format)}>
+      {absolute ? m.format(format) : m.fromNow()}
     </time>
   )
 }

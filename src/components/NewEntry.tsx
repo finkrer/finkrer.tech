@@ -1,10 +1,11 @@
-import { LogEntry } from 'lib/data'
+import { LogEntry, Sentiment } from 'lib/data'
 import { FC, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import Textarea from 'react-textarea-autosize'
 
 type FormData = {
   body: string
+  sentiment: Sentiment
 }
 
 type Props = {
@@ -24,7 +25,7 @@ const NewEntry: FC<Props> = ({ onCreate }) => {
     }).then((res) => {
       setResult(res.ok)
       if (res.ok) {
-        (document.getElementById('new-entry') as HTMLFormElement)?.reset()
+        ;(document.getElementById('new-entry') as HTMLFormElement)?.reset()
         res.json().then((j) => {
           onCreate?.(j.story as LogEntry)
         })
@@ -44,17 +45,30 @@ const NewEntry: FC<Props> = ({ onCreate }) => {
         placeholder="Share your thoughts..."
         {...register('body')}
       />
-      <input
-        className="self-end px-8 mt-4 btn ring-opacity-50"
-        type="submit"
-        value="Create"
-      ></input>
-      {!result && (
-        <span className="ml-4 text-sm font-semibold tracking-wide text-red-500">
-          Could not add entry
-        </span>
-      )}
-      
+      <div className="flex items-start justify-between mt-4">
+        <select
+          {...register('sentiment')}
+          className="px-2 py-3 text-xs font-medium bg-gray-200 rounded"
+        >
+          <option selected value="neutral">
+            нейтрально
+          </option>
+          <option value="sad">грусть</option>
+          <option value="happy">счастье</option>
+          <option value="love">любовь</option>
+          <option value="tough">песос</option>
+        </select>
+        <input
+          className="px-8 btn ring-opacity-50"
+          type="submit"
+          value="Create"
+        ></input>
+        {!result && (
+          <span className="ml-4 text-sm font-semibold tracking-wide text-red-500">
+            Could not add entry
+          </span>
+        )}
+      </div>
     </form>
   )
 }

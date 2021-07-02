@@ -18,4 +18,8 @@ export interface PostFrontMatter {
   readonly date: string
 }
 
-export type LogEntry = StoryData<StoryblokComponent<string> & { body: string }>
+export type Sentiment = 'neutral' | 'happy' | 'sad' | 'love' | 'tough'
+
+export type LogEntry = StoryData<
+  StoryblokComponent<string> & { body: string; sentiment: Sentiment }
+>

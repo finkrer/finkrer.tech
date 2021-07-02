@@ -1,7 +1,6 @@
 import { StoryblokCDA as Storyblok } from 'lib/storyblok'
 import Timestamp from 'components/Timestamp'
 import Markdown from 'components/Markdown'
-import Layout from 'layout/Layout'
 import DefaultErrorPage from 'next/error'
 import { GetServerSideProps } from 'next'
 import { isAuthorized } from 'lib/auth'
@@ -30,16 +29,14 @@ const PostPage = ({ post }: any) => {
   }
 
   return (
-    <Layout title={`finkrer.wtf • ${post.name}`} description="A post">
-      <div className="mt-4">
-        <h1 className="block mt-2 text-4xl font-medium">{post.name}</h1>
-        <Timestamp
-          datetime={post.first_published_at}
-          className="p-0 mt-1 text-sm tracking-wide text-gray-700 transition-colors duration-500 dark:text-gray-400"
-        />
-        <Markdown body={post.content.body} className="" />
-      </div>
-    </Layout>
+    <div className="mt-4">
+      <h1 className="block mt-2 text-4xl font-medium">{post.name}</h1>
+      <Timestamp
+        datetime={post.first_published_at}
+        className="p-0 mt-1 text-sm tracking-wide text-gray-700 transition-colors duration-500 dark:text-gray-400"
+      />
+      <Markdown body={post.content.body} className="" />
+    </div>
   )
 }
 

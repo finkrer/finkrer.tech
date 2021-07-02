@@ -29,6 +29,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       content: {
         component: 'log-entry',
         body: data.body,
+        sentiment: data.sentiment,
       },
     },
     publish: 1,
